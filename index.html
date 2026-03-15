@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Ivey Family Sports Hub</title>
 
@@ -11,326 +11,348 @@
 body{
 font-family:Arial, Helvetica, sans-serif;
 margin:0;
-background:#f5f8fb;
-color:#ffffff;
-}
-
-.container{
-max-width:1100px;
-margin:auto;
 padding:20px;
+color:#ffffff;
+
+background:
+linear-gradient(rgba(10,20,35,.45), rgba(10,20,35,.55)),
+url("images/family-background.jpg") center center / cover no-repeat fixed;
 }
 
-h1,h2,h3{
-margin-top:0;
-color:white;
+h1{
+text-align:center;
+margin-bottom:10px;
+color:#ffffff;
+text-shadow:0 2px 8px rgba(0,0,0,.4);
 }
 
 .card{
-background:#1E3A5F;
+background:rgba(255,255,255,0.18);
+border:1px solid rgba(255,255,255,0.25);
 border-radius:16px;
-padding:20px;
+padding:16px;
 margin-bottom:20px;
-box-shadow:0 8px 20px rgba(0,0,0,.2);
+backdrop-filter:blur(10px);
+-webkit-backdrop-filter:blur(10px);
+box-shadow:0 8px 24px rgba(0,0,0,.25);
 }
 
 button{
-padding:12px 18px;
-border-radius:10px;
+padding:10px 14px;
 border:none;
-cursor:pointer;
+border-radius:8px;
 font-weight:bold;
+cursor:pointer;
+margin-right:8px;
 }
 
-.primary{
-background:#F28C28;
-color:black;
-}
+.orange{background:#F28C28;color:white;}
+.red{background:#C94141;color:white;}
+.green{background:#39FF14;color:#111;}
+.blue{background:#1E3A5F;color:white;}
 
-.secondary{
-background:#ffffff;
-color:#1E3A5F;
-}
-
-.note{
-background:#7BA05B;
-padding:14px;
-border-radius:10px;
-margin-top:15px;
-}
-
-.gallery{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:10px;
-margin-top:15px;
-}
-
-.gallery img{
-width:100%;
-border-radius:10px;
-}
-
-.live-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-gap:20px;
+#calendarMonth{
+font-size:20px;
+font-weight:bold;
+margin-bottom:10px;
 }
 
 </style>
+
 </head>
 
-
 <body>
-
-<div class="container">
 
 <h1>Ivey Family Sports Hub</h1>
 
 
-<!-- ================================= -->
-<!--            LIVE HUB                -->
-<!-- ================================= -->
+<div class="card">
 
 <h2>Live Hub</h2>
 
-<div class="live-grid">
+<button class="orange">Shep GameChanger</button>
 
-<!-- SHEP -->
+<button class="red">Scarlett Soccer</button>
+
+<button class="green">Beau Braves</button>
+
+</div>
+
+
 
 <div class="card">
-
-<h3>Shep Live</h3>
-<p>Lobos 12U Baseball</p>
-
-<button class="primary">
-<!-- 🔴 PASTE GAMECHANGER LIVE LINK -->
-<a href="PASTE_SHEP_LIVE_GAME_LINK_HERE" style="color:black;text-decoration:none;">Watch / Score</a>
-</button>
-
-<button class="secondary">
-<!-- 🔴 PASTE SCHEDULE LINK -->
-<a href="PASTE_SHEP_SCHEDULE_LINK_HERE" style="text-decoration:none;">Schedule</a>
-</button>
-
-<div class="note">
-
-<!-- GameChanger Schedule Widget -->
-<div id="gc-schedule-widget-ms7z"></div>
-
-</div>
-
-</div>
-
-
-
-<!-- SCARLETT -->
-
-<div class="card">
-
-<h3>Scarlett Live</h3>
-<p>Soccer / Basketball</p>
-
-<button class="primary">
-<!-- 🔴 PASTE SCARLETT GAME DAY LINK -->
-<a href="PASTE_SCARLETT_GAME_DAY_LINK_HERE" style="color:black;text-decoration:none;">Game Day</a>
-</button>
-
-<button class="secondary">
-<!-- 🔴 PASTE SCARLETT SCHEDULE LINK -->
-<a href="PASTE_SCARLETT_SCHEDULE_LINK_HERE" style="text-decoration:none;">Schedule</a>
-</button>
-
-</div>
-
-
-
-<!-- BEAU -->
-
-<div class="card">
-
-<h3>Beau</h3>
-<p>Basketball / Events</p>
-
-<button class="primary">
-<!-- 🔴 PASTE BEAU MAIN LINK -->
-<a href="PASTE_BEAU_LINK_HERE" style="color:black;text-decoration:none;">Open</a>
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ================================= -->
-<!--          MONTHLY CALENDAR         -->
-<!-- ================================= -->
 
 <h2>Family Calendar</h2>
 
-<div class="card">
+<div id="calendarMonth"></div>
 
-<div id="calendarMonth" style="font-size:20px;margin-bottom:10px;"></div>
+<div id="nextUpBanner"></div>
 
 <div id="calendar"></div>
 
 </div>
 
 
-<!-- ================================= -->
-<!--         SHEP PHOTO SECTION        -->
-<!-- ================================= -->
-
-<h2>Shep Photos</h2>
-
-<div class="card">
-
-<div class="gallery">
-
-<!-- 🔵 DROP PHOTO FILE NAME -->
-<img src="images/shep1.jpg">
-
-<!-- 🔵 DROP PHOTO FILE NAME -->
-<img src="images/shep2.jpg">
-
-<!-- 🔵 DROP PHOTO FILE NAME -->
-<img src="images/shep3.jpg">
-
-</div>
-
-</div>
-
-
-
-<!-- ================================= -->
-<!--       SCARLETT PHOTO SECTION      -->
-<!-- ================================= -->
-
-<h2>Scarlett Photos</h2>
-
-<div class="card">
-
-<div class="gallery">
-
-<!-- 🔵 DROP PHOTO FILE NAME -->
-<img src="images/scarlett1.jpg">
-
-<!-- 🔵 DROP PHOTO FILE NAME -->
-<img src="images/scarlett2.jpg">
-
-<!-- 🔵 DROP PHOTO FILE NAME -->
-<img src="images/scarlett3.jpg">
-
-</div>
-
-</div>
-
-
-
-<!-- ================================= -->
-<!--           BEAU PHOTOS             -->
-<!-- ================================= -->
-
-<h2>Beau Photos</h2>
-
-<div class="card">
-
-<div class="gallery">
-
-<!-- 🔵 DROP PHOTO FILE NAME -->
-<img src="images/beau1.jpg">
-
-<!-- 🔵 DROP PHOTO FILE NAME -->
-<img src="images/beau2.jpg">
-
-<!-- 🔵 DROP PHOTO FILE NAME -->
-<img src="images/beau3.jpg">
-
-</div>
-
-</div>
-
-
-
-<!-- ================================= -->
-<!--        LOBO IMAGE SECTION         -->
-<!-- ================================= -->
-
-<h2>Lobo</h2>
-
-<div class="card">
-
-<!-- 🔵 DROP LOBO IMAGE -->
-<img src="images/lobo.png" style="width:200px">
-
-</div>
-
-
-</div>
-
-
-
-<!-- ================================= -->
-<!--       GAMECHANGER WIDGET SCRIPT   -->
-<!-- ================================= -->
-
-<script src="https://widgets.gc.com/static/js/sdk.v1.js"></script>
 
 <script>
 
-window.GC.team.schedule.init({
-target:"#gc-schedule-widget-ms7z",
-widgetId:"a9d47127-73de-4059-89a0-c22ef0c7b217",
-maxVerticalGamesVisible:4
-})
+const calendar = document.getElementById("calendar")
 
-</script>
+const monthLabel = document.getElementById("calendarMonth")
+
+const nextUpBanner = document.getElementById("nextUpBanner")
+
+const today = new Date()
+
+let currentMonth = today.getMonth()
+
+let currentYear = today.getFullYear()
 
 
-<!-- ================================= -->
-<!--        CALENDAR SCRIPT            -->
-<!-- ================================= -->
 
 const calendarEvents = [
 
-  // ⚾ SHEP TOURNAMENTS
-  { date:"2026-03-13", title:"Lobos Tournament - Conway", type:"shep"},
-  { date:"2026-03-14", title:"Lobos Tournament - Conway", type:"shep"},
-  { date:"2026-03-15", title:"Bracket Game 8:00 AM - Conway", type:"shep"},
+{ date:"2026-03-13", title:"Lobos Tournament - Conway", type:"shep"},
 
-  { date:"2026-04-04", title:"Easter Bash - Conway", type:"shep"},
+{ date:"2026-03-14", title:"Lobos Tournament - Conway", type:"shep"},
 
-  { date:"2026-04-10", title:"Super Regionals - Cabot", type:"shep"},
-  { date:"2026-04-11", title:"Super Regionals - Cabot", type:"shep"},
-  { date:"2026-04-12", title:"Super Regionals - Cabot", type:"shep"},
+{ date:"2026-03-15", title:"Bracket Game 8AM - Conway", type:"shep"},
 
+{ date:"2026-03-21", title:"Scarlett vs Rogers 11:15", type:"scarlett"},
 
-  // ⚽ SCARLETT SOCCER
-  { date:"2026-03-21", title:"11:15 AM Brown vs Rogers - AVSA Field 2A", type:"scarlett"},
-  { date:"2026-04-04", title:"11:15 AM Brown vs Robinson - AVSA Field 2A", type:"scarlett"},
-  { date:"2026-04-11", title:"11:15 AM Brown vs Collins - AVSA Field 2A", type:"scarlett"},
-  { date:"2026-04-18", title:"11:15 AM Rogers vs Brown - AVSA Field 2A", type:"scarlett"},
-  { date:"2026-04-25", title:"9:30 AM Robinson vs Brown - AVSA Field 9", type:"scarlett"},
-  { date:"2026-05-02", title:"9:30 AM Collins vs Brown - AVSA Field 9", type:"scarlett"},
-  { date:"2026-05-09", title:"9:30 AM Brown vs Rogers - AVSA Field 9", type:"scarlett"},
+{ date:"2026-04-04", title:"Scarlett vs Robinson 11:15", type:"scarlett"},
 
+{ date:"2026-04-11", title:"Scarlett vs Collins 11:15", type:"scarlett"},
 
-  // 🟢 BEAU BRAVES
+{ date:"2026-03-16", title:"Braves Practice 6:15", type:"beau"},
 
-  { date:"2026-04-27", title:"5:20 PM Orioles vs Braves - Hickey Field 7", type:"beau"},
-  { date:"2026-05-02", title:"1:00 PM Braves Practice - Hickey Field 4", type:"beau"},
-  { date:"2026-05-04", title:"6:20 PM Pirates vs Braves - Hickey Field 7", type:"beau"},
-  { date:"2026-05-07", title:"5:20 PM Braves vs Orioles - Hickey Field 7", type:"beau"},
-  { date:"2026-05-09", title:"1:00 PM Braves Practice - Hickey Field 4", type:"beau"},
-  { date:"2026-05-11", title:"6:20 PM Braves vs Cubs - Hickey Field 7", type:"beau"},
-  { date:"2026-05-14", title:"5:20 PM Orioles vs Braves - Hickey Field 7", type:"beau"},
+{ date:"2026-03-21", title:"Braves Practice 1:00", type:"beau"},
 
+{ date:"2026-03-28", title:"Braves Practice 1:00", type:"beau"},
 
-  // 👨‍👩‍👧‍👦 FAMILY TRAINING
-  { date:"2026-03-20", title:"Family 3v3 Practice", type:"family"},
-  { date:"2026-03-27", title:"Family 3v3 Practice", type:"family"}
+{ date:"2026-03-20", title:"Family 3v3 Practice", type:"family"},
+
+{ date:"2026-03-27", title:"Family 3v3 Practice", type:"family"}
 
 ]
+
+
+
+function getColor(type){
+
+if(type=="shep") return "#F28C28"
+
+if(type=="scarlett") return "#C94141"
+
+if(type=="beau") return "#39FF14"
+
+return "#1E3A5F"
+
+}
+
+
+
+function renderNextUp(){
+
+let upcoming = calendarEvents
+.sort((a,b)=> new Date(a.date)-new Date(b.date))[0]
+
+if(!upcoming) return
+
+nextUpBanner.innerHTML=`
+
+<div style="
+padding:12px;
+border-radius:10px;
+background:rgba(255,255,255,.25);
+border:1px solid rgba(255,255,255,.3);
+margin-bottom:10px;
+">
+
+<b>Next Up</b><br>
+
+${upcoming.title}<br>
+
+${upcoming.date}
+
+</div>
+
+`
+
+}
+
+
+
+function renderCalendar(){
+
+const firstDay = new Date(currentYear,currentMonth,1).getDay()
+
+const daysInMonth = new Date(currentYear,currentMonth+1,0).getDate()
+
+monthLabel.innerText =
+new Date(currentYear,currentMonth)
+.toLocaleString('default',{month:'long'})+" "+currentYear
+
+calendar.innerHTML=""
+
+let controls=document.createElement("div")
+
+controls.innerHTML=`
+
+<button onclick="prevMonth()">Prev</button>
+
+<button onclick="goToday()">Today</button>
+
+<button onclick="nextMonth()">Next</button>
+
+`
+
+controls.style.marginBottom="10px"
+
+calendar.appendChild(controls)
+
+
+
+let grid=document.createElement("div")
+
+grid.style.display="grid"
+
+grid.style.gridTemplateColumns="repeat(7,1fr)"
+
+grid.style.gap="6px"
+
+
+
+for(let i=0;i<firstDay;i++){
+
+grid.innerHTML+="<div></div>"
+
+}
+
+
+
+for(let d=1;d<=daysInMonth;d++){
+
+let day=document.createElement("div")
+
+day.style.background="rgba(255,255,255,.22)"
+
+day.style.border="1px solid rgba(255,255,255,.25)"
+
+day.style.borderRadius="8px"
+
+day.style.padding="10px"
+
+day.style.minHeight="90px"
+
+day.style.backdropFilter="blur(6px)"
+
+day.style.webkitBackdropFilter="blur(6px)"
+
+
+
+let dateKey=
+currentYear+"-"+String(currentMonth+1).padStart(2,'0')+"-"+String(d).padStart(2,'0')
+
+
+
+day.innerHTML="<b>"+d+"</b>"
+
+
+
+calendarEvents.forEach(event=>{
+
+if(event.date==dateKey){
+
+let item=document.createElement("div")
+
+item.innerText=event.title
+
+item.style.background=getColor(event.type)
+
+item.style.color="white"
+
+item.style.padding="4px"
+
+item.style.marginTop="4px"
+
+item.style.borderRadius="6px"
+
+item.style.fontSize="11px"
+
+day.appendChild(item)
+
+}
+
+})
+
+
+
+grid.appendChild(day)
+
+}
+
+
+
+calendar.appendChild(grid)
+
+renderNextUp()
+
+}
+
+
+
+function prevMonth(){
+
+currentMonth--
+
+if(currentMonth<0){
+
+currentMonth=11
+
+currentYear--
+
+}
+
+renderCalendar()
+
+}
+
+
+
+function nextMonth(){
+
+currentMonth++
+
+if(currentMonth>11){
+
+currentMonth=0
+
+currentYear++
+
+}
+
+renderCalendar()
+
+}
+
+
+
+function goToday(){
+
+currentMonth=today.getMonth()
+
+currentYear=today.getFullYear()
+
+renderCalendar()
+
+}
+
+
+
+renderCalendar()
+
+</script>
 
 </body>
 </html>
