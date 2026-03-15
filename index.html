@@ -1,931 +1,954 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ivey Kids Sports Hub</title>
-  <style>
-    :root {
-      --bg: #0e1117;
-      --bg-soft: #151a23;
-      --card: rgba(255,255,255,0.06);
-      --card-strong: rgba(255,255,255,0.09);
-      --text: #f5f7fb;
-      --muted: #b9c2d0;
-      --border: rgba(255,255,255,0.10);
-      --shadow: 0 14px 40px rgba(0,0,0,0.28);
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ivey Family Sports Hub</title>
 
-      --family-accent: #7dd3fc;
+  <style>
+    :root{
+      --bg:#1A202C;
+      --text:#A0AEC0;
+      --card:#2D3748;
+      --card-2:#253041;
+      --border:rgba(255,255,255,.08);
+      --link:#63B3ED;
+      --white:#F7FAFC;
 
-      --shep-primary: #f58220;
-      --shep-dark: #111111;
+      --shep:#F6AD55;
+      --shep-glow:rgba(246,173,85,.28);
 
-      --scarlett-primary: #c1121f;
-      --scarlett-dark: #101010;
-      --scarlett-light: #ffffff;
+      --scarlett:#FC8181;
+      --scarlett-glow:rgba(252,129,129,.28);
 
-      --beau-primary: #c62828;
-      --beau-dark: #7f1d1d;
+      --beau:#39FF14;
+      --beau-pink:#ED64A6;
+      --beau-glow:rgba(57,255,20,.20);
 
-      --success: #22c55e;
-      --warning: #f59e0b;
-    }
+      --success:#48BB78;
+      --warning:#F6E05E;
+      --danger:#FC8181;
 
-    * {
-      box-sizing: border-box;
-    }
+      --shadow:0 14px 36px rgba(0,0,0,.34);
+      --radius:22px;
+    }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    *{box-sizing:border-box}
 
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top right, rgba(125, 211, 252, 0.08), transparent 25%),
-        radial-gradient(circle at top left, rgba(245, 130, 32, 0.08), transparent 22%),
-        linear-gradient(180deg, #0b0e14 0%, #111723 100%);
-      line-height: 1.5;
-    }
+    html{scroll-behavior:smooth}
 
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(circle at top right, rgba(99,179,237,.10), transparent 20%),
+        radial-gradient(circle at top left, rgba(237,100,166,.07), transparent 22%),
+        linear-gradient(180deg, #131923 0%, #1A202C 100%);
+      color:var(--text);
+    }
 
-    img {
-      max-width: 100%;
-      display: block;
-    }
+    a{
+      color:var(--link);
+      text-decoration:none;
+    }
 
-    .container {
-      width: min(1150px, 92%);
-      margin: 0 auto;
-    }
+    img{
+      display:block;
+      width:100%;
+      height:auto;
+    }
 
-    .hero {
-      padding: 34px 0 22px;
-    }
+    .container{
+      width:min(1180px, 92%);
+      margin:0 auto;
+    }
 
-    .hero-box {
-      background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      padding: 28px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-    }
+    .hero{
+      padding:28px 0 20px;
+    }
 
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.80rem;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      font-weight: 800;
-      color: var(--family-accent);
-      margin-bottom: 10px;
-    }
+    .hero-box{
+      background:
+        linear-gradient(135deg, rgba(255,255,255,.05), rgba(255,255,255,.02)),
+        url('images/family-canyon.jpg') center/cover no-repeat;
+      border:1px solid var(--border);
+      border-radius:28px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      position:relative;
+      min-height:340px;
+      display:flex;
+      align-items:end;
+    }
 
-    h1 {
-      margin: 0 0 10px;
-      font-size: clamp(2rem, 5vw, 3.7rem);
-      line-height: 1.04;
-    }
+    .hero-overlay{
+      width:100%;
+      padding:28px;
+      background:linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.68));
+    }
 
-    .subtitle {
-      margin: 0;
-      color: var(--muted);
-      max-width: 840px;
-      font-size: 1.02rem;
-    }
+    .eyebrow{
+      display:inline-block;
+      color:var(--white);
+      font-size:.82rem;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:700;
+      margin-bottom:10px;
+    }
 
-    .quick-nav {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 22px;
-    }
+    h1{
+      margin:0 0 8px;
+      color:var(--white);
+      font-size:clamp(2rem, 5vw, 3.6rem);
+      line-height:1.02;
+    }
 
-    .chip {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-weight: 700;
-      font-size: 0.94rem;
-    }
+    .hero-subtitle{
+      margin:0;
+      max-width:760px;
+      color:#E2E8F0;
+      font-size:1.05rem;
+    }
 
-    .chip:hover {
-      background: rgba(255,255,255,0.12);
-    }
+    .quick-nav{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:18px;
+    }
 
-    .section {
-      padding: 18px 0 8px;
-    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.10);
+      color:var(--white);
+      border:1px solid rgba(255,255,255,.12);
+      font-weight:700;
+      font-size:.92rem;
+      backdrop-filter:blur(8px);
+    }
 
-    .section-title {
-      font-size: 1.55rem;
-      margin: 0 0 14px;
-    }
+    .section{
+      padding:18px 0;
+    }
 
-    .section-subtitle {
-      color: var(--muted);
-      margin: -6px 0 18px;
-      font-size: 0.98rem;
-    }
+    .section-title{
+      margin:0 0 10px;
+      font-size:1.7rem;
+      color:var(--white);
+    }
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 18px;
-    }
+    .section-subtitle{
+      margin:0 0 18px;
+      font-size:.98rem;
+      color:var(--text);
+    }
 
-    .card {
-      grid-column: span 12;
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:18px;
+    }
 
-    .card-half {
-      grid-column: span 12;
-    }
+    .card{
+      grid-column:span 12;
+      background:linear-gradient(180deg, var(--card), var(--card-2));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
 
-    .card-third {
-      grid-column: span 12;
-    }
+    .span-4{grid-column:span 12}
+    .span-6{grid-column:span 12}
+    .span-8{grid-column:span 12}
 
-    @media (min-width: 800px) {
-      .card-half {
-        grid-column: span 6;
-      }
+    @media (min-width: 860px){
+      .span-4{grid-column:span 4}
+      .span-6{grid-column:span 6}
+      .span-8{grid-column:span 8}
+    }
 
-      .card-third {
-        grid-column: span 4;
-      }
-    }
+    .card-top{
+      padding:18px 18px 14px;
+      border-bottom:1px solid var(--border);
+    }
 
-    .card-top {
-      padding: 18px 18px 14px;
-      border-bottom: 1px solid var(--border);
-    }
+    .card-body{
+      padding:18px;
+    }
 
-    .card-body {
-      padding: 18px;
-    }
+    .tag{
+      display:inline-block;
+      margin-bottom:10px;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.78rem;
+      font-weight:700;
+      letter-spacing:.03em;
+      color:#111;
+      background:#ddd;
+    }
 
-    .tag {
-      display: inline-block;
-      margin-bottom: 10px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      letter-spacing: 0.03em;
-    }
+    .kid-title{
+      margin:0 0 4px;
+      color:var(--white);
+      font-size:1.6rem;
+    }
 
-    h2, h3 {
-      margin: 0;
-    }
+    .team-name{
+      margin:0;
+      color:var(--text);
+      font-size:.96rem;
+    }
 
-    .kid-name {
-      font-size: 1.6rem;
-      margin-bottom: 4px;
-    }
+    .desc{
+      margin:12px 0 0;
+      color:var(--text);
+      font-size:.98rem;
+    }
 
-    .team-name {
-      margin: 0;
-      color: var(--muted);
-      font-size: 0.97rem;
-    }
+    .button-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:10px;
+      margin-top:16px;
+    }
 
-    .desc {
-      margin: 12px 0 16px;
-      color: var(--muted);
-    }
+    .btn{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      min-height:46px;
+      padding:12px 14px;
+      border-radius:14px;
+      font-weight:700;
+      border:1px solid transparent;
+      transition:transform .15s ease, opacity .15s ease, box-shadow .15s ease;
+      cursor:pointer;
+      color:#111;
+      background:#fff;
+    }
 
-    .button-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 10px;
-    }
+    .btn:hover{
+      transform:translateY(-1px);
+      opacity:.97;
+    }
 
-    .btn {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      min-height: 46px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      font-weight: 800;
-      border: 1px solid transparent;
-      transition: transform 0.15s ease, opacity 0.15s ease, background 0.15s ease;
-      cursor: pointer;
-    }
+    .btn-secondary{
+      background:rgba(255,255,255,.05);
+      color:var(--white);
+      border-color:var(--border);
+    }
 
-    .btn:hover {
-      transform: translateY(-1px);
-      opacity: 0.97;
-    }
+    .btn-dark{
+      background:#111827;
+      color:var(--white);
+      border-color:rgba(255,255,255,.08);
+    }
 
-    .btn-primary {
-      background: #ffffff;
-      color: #111111;
-    }
+    .note{
+      margin-top:16px;
+      padding:13px 14px;
+      border-radius:16px;
+      border:1px solid rgba(99,179,237,.22);
+      background:rgba(99,179,237,.08);
+      color:#D6ECFF;
+      font-size:.94rem;
+    }
 
-    .btn-secondary {
-      background: rgba(255,255,255,0.08);
-      border-color: var(--border);
-      color: var(--text);
-    }
+    .stat-list{
+      display:grid;
+      gap:10px;
+      margin-top:16px;
+    }
 
-    .btn-outline {
-      background: transparent;
-      border-color: rgba(255,255,255,0.18);
-      color: var(--text);
-    }
+    .stat{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      padding:11px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.05);
+      background:rgba(255,255,255,.03);
+    }
 
-    .meta-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 16px;
-    }
+    .stat span:first-child{color:var(--text)}
+    .stat strong{color:var(--white)}
 
-    .meta-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 12px;
-      padding: 11px 12px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.05);
-      font-size: 0.95rem;
-    }
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+      gap:14px;
+      margin-top:16px;
+    }
 
-    .meta-label {
-      color: var(--muted);
-    }
+    .gallery figure{
+      margin:0;
+      overflow:hidden;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background:#111827;
+      box-shadow:0 10px 20px rgba(0,0,0,.20);
+    }
 
-    .note-banner {
-      margin-top: 16px;
-      padding: 13px 14px;
-      border-radius: 16px;
-      background: rgba(125, 211, 252, 0.10);
-      border: 1px solid rgba(125, 211, 252, 0.25);
-      color: #eaf8ff;
-      font-size: 0.95rem;
-    }
+    .gallery img{
+      aspect-ratio: 4 / 5;
+      object-fit:cover;
+      transition:transform .2s ease;
+    }
 
-    .small-note {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 0.88rem;
-    }
+    .gallery img:hover{
+      transform:scale(1.03);
+    }
 
-    .media-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 14px;
-      margin-top: 16px;
-    }
+    .gallery figcaption{
+      padding:8px 10px;
+      font-size:.84rem;
+      color:var(--text);
+      background:rgba(255,255,255,.03);
+    }
 
-    @media (min-width: 800px) {
-      .media-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
+    .video-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
+      gap:14px;
+      margin-top:16px;
+    }
 
-    .media-box {
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 16px;
-      background: rgba(255,255,255,0.04);
-    }
+    .video-box{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      min-height:120px;
+    }
 
-    .media-box h4 {
-      margin: 0 0 6px;
-      font-size: 1.05rem;
-    }
+    .video-box h4{
+      margin:0 0 8px;
+      color:var(--white);
+      font-size:1rem;
+    }
 
-    .media-box p {
-      margin: 0 0 12px;
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
+    .video-box p{
+      margin:0 0 12px;
+      color:var(--text);
+      font-size:.92rem;
+    }
 
-    .media-preview {
-      min-height: 110px;
-      border: 1px dashed rgba(255,255,255,0.18);
-      border-radius: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 14px;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.92rem;
-      margin-top: 12px;
-      background: rgba(255,255,255,0.025);
-    }
+    .schedule-table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:560px;
+    }
 
-    .schedule-wrap {
-      overflow-x: auto;
-    }
+    .table-wrap{
+      overflow-x:auto;
+    }
 
-    table {
-      width: 100%;
-      min-width: 560px;
-      border-collapse: collapse;
-    }
+    .schedule-table th,
+    .schedule-table td{
+      padding:12px 10px;
+      text-align:left;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      font-size:.94rem;
+    }
 
-    th, td {
-      text-align: left;
-      padding: 12px 10px;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      font-size: 0.95rem;
-    }
+    .schedule-table th{
+      color:var(--white);
+      font-size:.82rem;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
 
-    th {
-      color: var(--muted);
-      font-weight: 800;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+    .live-panel{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:14px;
+    }
 
-    .resource-list {
-      display: grid;
-      gap: 10px;
-    }
+    .live-box{
+      grid-column:span 12;
+      border-radius:18px;
+      padding:18px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.035);
+    }
 
-    .resource-item {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.06);
-    }
+    @media (min-width:900px){
+      .live-box{grid-column:span 4}
+    }
 
-    .footer {
-      padding: 30px 0 42px;
-      color: var(--muted);
-      text-align: center;
-      font-size: 0.92rem;
-    }
+    .live-box h3{
+      margin:0 0 8px;
+      color:var(--white);
+      font-size:1.05rem;
+    }
 
-    /* Kid themes */
-    .shep .card-top {
-      background: linear-gradient(135deg, rgba(245,130,32,0.30), rgba(17,17,17,0.58));
-    }
-    .shep .tag {
-      background: rgba(245,130,32,0.18);
-      border: 1px solid rgba(245,130,32,0.28);
-      color: #ffd0a6;
-    }
-    .shep .btn-primary {
-      background: var(--shep-primary);
-      color: #111111;
-    }
+    .score-shell{
+      margin-top:12px;
+      padding:14px;
+      border-radius:16px;
+      background:#111827;
+      border:1px dashed rgba(255,255,255,.18);
+      color:#CBD5E0;
+      font-size:.92rem;
+    }
 
-    .scarlett .card-top {
-      background: linear-gradient(135deg, rgba(193,18,31,0.32), rgba(16,16,16,0.58));
-    }
-    .scarlett .tag {
-      background: rgba(255,255,255,0.10);
-      border: 1px solid rgba(255,255,255,0.18);
-      color: #ffffff;
-    }
-    .scarlett .btn-primary {
-      background: var(--scarlett-primary);
-      color: #ffffff;
-    }
+    .resource-list{
+      display:grid;
+      gap:10px;
+    }
 
-    .beau .card-top {
-      background: linear-gradient(135deg, rgba(198,40,40,0.32), rgba(127,29,29,0.58));
-    }
-    .beau .tag {
-      background: rgba(198,40,40,0.18);
-      border: 1px solid rgba(198,40,40,0.24);
-      color: #ffd1d1;
-    }
-    .beau .btn-primary {
-      background: var(--beau-primary);
-      color: #ffffff;
-    }
+    .resource-item{
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      align-items:center;
+      padding:12px 14px;
+      border-radius:14px;
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,255,255,.06);
+      color:var(--white);
+    }
 
-    .neutral-top {
-      background: linear-gradient(135deg, rgba(125,211,252,0.14), rgba(255,255,255,0.03));
-    }
-  </style>
+    .hero-family{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(170px,1fr));
+      gap:14px;
+    }
+
+    .family-card{
+      overflow:hidden;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background:#111827;
+    }
+
+    .family-card img{
+      aspect-ratio: 4 / 5;
+      object-fit:cover;
+    }
+
+    .family-card div{
+      padding:10px;
+      color:var(--text);
+      font-size:.88rem;
+    }
+
+    .footer{
+      padding:28px 0 40px;
+      text-align:center;
+      color:var(--text);
+      font-size:.92rem;
+    }
+
+    .shep-theme .card-top{
+      background:linear-gradient(135deg, rgba(246,173,85,.26), rgba(0,0,0,.14));
+      box-shadow:inset 0 0 40px var(--shep-glow);
+    }
+    .shep-theme .tag{
+      background:var(--shep);
+      color:#111;
+    }
+    .shep-theme .btn-primary{
+      background:var(--shep);
+      color:#111;
+      box-shadow:0 0 24px var(--shep-glow);
+    }
+
+    .scarlett-theme .card-top{
+      background:linear-gradient(135deg, rgba(252,129,129,.24), rgba(0,0,0,.12));
+      box-shadow:inset 0 0 40px var(--scarlett-glow);
+    }
+    .scarlett-theme .tag{
+      background:var(--scarlett);
+      color:#111;
+    }
+    .scarlett-theme .btn-primary{
+      background:var(--scarlett);
+      color:#111;
+      box-shadow:0 0 24px var(--scarlett-glow);
+    }
+
+    .beau-theme .card-top{
+      background:
+        linear-gradient(135deg, rgba(57,255,20,.18), rgba(237,100,166,.14));
+      box-shadow:inset 0 0 42px var(--beau-glow);
+    }
+    .beau-theme .tag{
+      background:linear-gradient(90deg, var(--beau), var(--beau-pink));
+      color:#111;
+    }
+    .beau-theme .btn-primary{
+      background:linear-gradient(90deg, var(--beau), var(--beau-pink));
+      color:#111;
+      box-shadow:0 0 24px rgba(57,255,20,.18);
+    }
+
+    .accent-shep{color:var(--shep)}
+    .accent-scarlett{color:var(--scarlett)}
+    .accent-beau{color:var(--beau)}
+    .accent-white{color:var(--white)}
+  </style>
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <div class="hero-box">
-        <div class="eyebrow">Family + Sports</div>
-        <h1>The Ivey Kids Sports Hub</h1>
-        <p class="subtitle">
-          One place for live scores, schedules, maps, highlights, photos, and videos for Shep, Scarlett, and Beau.
-        </p>
 
-        <nav class="quick-nav">
-          <a class="chip" href="#shep">⚾ Shep</a>
-          <a class="chip" href="#scarlett">⚽ Scarlett</a>
-          <a class="chip" href="#beau">🏅 Beau</a>
-          <a class="chip" href="#weekend">📅 Schedule</a>
-          <a class="chip" href="#media-hub">📸 Media</a>
-          <a class="chip" href="#resources">📍 Resources</a>
-        </nav>
-      </div>
-    </div>
-  </header>
+  <header class="hero">
+    <div class="container">
+      <div class="hero-box">
+        <div class="hero-overlay">
+          <div class="eyebrow">Family + Sports Hub</div>
+          <h1>The Ivey Family Sports Hub</h1>
+          <p class="hero-subtitle">
+            One place for live games, schedules, maps, photos, videos, highlights, and game-day shortcuts for Shep, Scarlett, and Beau.
+          </p>
 
-  <main class="container">
-    <!-- SHEP -->
-    <section class="section" id="shep">
-      <h2 class="section-title">Shep</h2>
-      <p class="section-subtitle">Travel baseball, live scores, team info, and media.</p>
+          <div class="quick-nav">
+            <a class="chip" href="#live-hub">Live Hub</a>
+            <a class="chip" href="#gameday">Game Day</a>
+            <a class="chip" href="#shep">Shep</a>
+            <a class="chip" href="#scarlett">Scarlett</a>
+            <a class="chip" href="#beau">Beau</a>
+            <a class="chip" href="#family-gallery">Family</a>
+            <a class="chip" href="#weekend">Schedule</a>
+            <a class="chip" href="#resources">Maps & Resources</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-      <div class="grid">
-        <article class="card shep card-half">
-          <div class="card-top">
-            <div class="tag">Travel Baseball</div>
-            <h3 class="kid-name">Shep</h3>
-            <p class="team-name">Team: Lobos 12U</p>
-          </div>
-          <div class="card-body">
-            <p class="desc">
-              Quick access to Shep’s live score, schedule, team page, field maps, and highlights.
-            </p>
+  <main class="container">
 
-            <div class="button-grid">
-              <a class="btn btn-primary" href="PASTE_SHEP_LIVE_SCORE_LINK_HERE" target="_blank" rel="noopener">Live Score</a>
-              <a class="btn btn-secondary" href="PASTE_SHEP_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
-              <a class="btn btn-secondary" href="PASTE_SHEP_TEAM_PAGE_LINK_HERE" target="_blank" rel="noopener">Team Page</a>
-              <a class="btn btn-secondary" href="PASTE_SHEP_MAP_LINK_HERE" target="_blank" rel="noopener">Field Map</a>
-            </div>
+    <section class="section" id="live-hub">
+      <h2 class="section-title">Live Hub</h2>
+      <p class="section-subtitle">
+        Quick phone-friendly shortcuts for live games, score checking, streaming, weather, and directions.
+      </p>
 
-            <div class="meta-list">
-              <div class="meta-item">
-                <span class="meta-label">Primary App</span>
-                <span>GameChanger</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Colors</span>
-                <span>Orange & Black</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Highlights</span>
-                <a href="PASTE_SHEP_HIGHLIGHTS_LINK_HERE" target="_blank" rel="noopener">Open</a>
-              </div>
-            </div>
+      <div class="live-panel">
+        <div class="live-box">
+          <h3 class="accent-shep">Shep Live Baseball</h3>
+          <div class="button-grid">
+            <a class="btn btn-primary" href="PASTE_SHEP_GAMECHANGER_LIVE_LINK_HERE" target="_blank" rel="noopener">Watch / Score</a>
+            <a class="btn btn-secondary" href="PASTE_SHEP_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
+          </div>
+          <div class="score-shell">
+            Optional widget area: if you later get a GameChanger widget or embeddable scoreboard, replace this box with that embed code.
+          </div>
+        </div>
 
-            <div class="note-banner">
-              Best phone setup: save this page to your Home Screen and use the <strong>Live Score</strong> button during games.
-            </div>
-          </div>
-        </article>
+        <div class="live-box">
+          <h3 class="accent-scarlett">Scarlett Game Day</h3>
+          <div class="button-grid">
+            <a class="btn btn-dark" href="PASTE_SCARLETT_GAME_DAY_LINK_HERE" target="_blank" rel="noopener">Match Link</a>
+            <a class="btn btn-secondary" href="PASTE_SCARLETT_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
+          </div>
+          <div class="score-shell">
+            Good place for a club app link, bracket link, standings page, or livestream page.
+          </div>
+        </div>
 
-        <article class="card shep card-half">
-          <div class="card-top">
-            <div class="tag">Photos & Videos</div>
-            <h3 class="kid-name">Shep Media</h3>
-            <p class="team-name">Connect this section to OneDrive folders.</p>
-          </div>
-          <div class="card-body">
-            <p class="desc">
-              Use one folder for photos and one for videos. Just move files into those OneDrive folders and open them from here.
-            </p>
+        <div class="live-box">
+          <h3 class="accent-beau">Beau Live / Events</h3>
+          <div class="button-grid">
+            <a class="btn btn-dark" href="PASTE_BEAU_MAIN_LINK_HERE" target="_blank" rel="noopener">Open Link</a>
+            <a class="btn btn-secondary" href="PASTE_BEAU_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
+          </div>
+          <div class="score-shell">
+            Use this area for basketball, school events, tournaments, or future sports links.
+          </div>
+        </div>
+      </div>
 
-            <div class="media-grid">
-              <div class="media-box">
-                <h4>Photos Folder</h4>
-                <p>Game photos, team pics, tournament shots, candid moments.</p>
-                <div class="button-grid">
-                  <a class="btn btn-primary" href="PASTE_SHEP_ONEDRIVE_PHOTOS_FOLDER_LINK_HERE" target="_blank" rel="noopener">Open Photos</a>
-                  <a class="btn btn-outline" href="PASTE_SHEP_ONEDRIVE_PHOTOS_UPLOAD_LINK_HERE" target="_blank" rel="noopener">Upload Photos</a>
-                </div>
-                <div class="media-preview">
-                  Optional: paste a public OneDrive embed iframe here later if you want the folder/gallery to show directly on the page.
-                </div>
-              </div>
+      <div class="note">
+        Best setup on iPhone: open this page in Safari, tap <strong>Share</strong>, then tap <strong>Add to Home Screen</strong>. That gives you a one-tap family sports app icon.
+      </div>
+    </section>
 
-              <div class="media-box">
-                <h4>Videos Folder</h4>
-                <p>Highlights, at-bats, live clips, recaps, and saved game footage.</p>
-                <div class="button-grid">
-                  <a class="btn btn-primary" href="PASTE_SHEP_ONEDRIVE_VIDEOS_FOLDER_LINK_HERE" target="_blank" rel="noopener">Open Videos</a>
-                  <a class="btn btn-outline" href="PASTE_SHEP_ONEDRIVE_VIDEOS_UPLOAD_LINK_HERE" target="_blank" rel="noopener">Upload Videos</a>
-                </div>
-                <div class="media-preview">
-                  Add a public highlight reel link here too if you decide to keep best clips in a separate album or playlist.
-                </div>
-              </div>
-            </div>
+    <section class="section" id="gameday">
+      <h2 class="section-title">Game Day</h2>
+      <p class="section-subtitle">
+        This section is made for tournaments and busy Saturdays when you want everything fast from one screen.
+      </p>
 
-            <div class="small-note">
-              Tip: create folders like <strong>Shep / Photos</strong> and <strong>Shep / Videos</strong> in OneDrive, then paste those share links here.
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+      <div class="grid">
+        <article class="card span-6">
+          <div class="card-top">
+            <h3 class="kid-title">Today’s Game-Day Shortcuts</h3>
+            <p class="team-name">Update these links before a tournament weekend.</p>
+          </div>
+          <div class="card-body">
+            <div class="button-grid">
+              <a class="btn btn-dark" href="PASTE_TOURNAMENT_BRACKET_LINK_HERE" target="_blank" rel="noopener">Bracket</a>
+              <a class="btn btn-dark" href="PASTE_MASTER_FIELD_MAP_LINK_HERE" target="_blank" rel="noopener">Complex Map</a>
+              <a class="btn btn-dark" href="PASTE_WEATHER_RADAR_LINK_HERE" target="_blank" rel="noopener">Weather</a>
+              <a class="btn btn-dark" href="PASTE_FOOD_OR_NOTES_LINK_HERE" target="_blank" rel="noopener">Notes</a>
+            </div>
+            <div class="note">
+              You can swap this into a pure tournament dashboard later with pool-play times, bracket links, and field assignments.
+            </div>
+          </div>
+        </article>
 
-    <!-- SCARLETT -->
-    <section class="section" id="scarlett">
-      <h2 class="section-title">Scarlett</h2>
-      <p class="section-subtitle">Soccer schedule, game-day links, standings, and media.</p>
+        <article class="card span-6">
+          <div class="card-top">
+            <h3 class="kid-title">Family Checklist</h3>
+            <p class="team-name">A simple place to keep useful day-of info.</p>
+          </div>
+          <div class="card-body">
+            <div class="resource-list">
+              <a class="resource-item" href="PASTE_PARENT_GROUP_CHAT_LINK_HERE" target="_blank" rel="noopener"><span>Parent Group Chat</span><span>💬</span></a>
+              <a class="resource-item" href="PASTE_TEAM_ANNOUNCEMENTS_LINK_HERE" target="_blank" rel="noopener"><span>Announcements</span><span>📣</span></a>
+              <a class="resource-item" href="PASTE_COMPLEX_RULES_LINK_HERE" target="_blank" rel="noopener"><span>Complex Rules</span><span>📋</span></a>
+              <a class="resource-item" href="PASTE_HOTEL_OR_TRAVEL_LINK_HERE" target="_blank" rel="noopener"><span>Travel / Hotel</span><span>🧳</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-      <div class="grid">
-        <article class="card scarlett card-half">
-          <div class="card-top">
-            <div class="tag">Soccer</div>
-            <h3 class="kid-name">Scarlett</h3>
-            <p class="team-name">Team: PASTE_SCARLETT_TEAM_NAME</p>
-          </div>
-          <div class="card-body">
-            <p class="desc">
-              Quick access to Scarlett’s match schedule, standings, field maps, team info, and highlights.
-            </p>
+    <section class="section" id="shep">
+      <h2 class="section-title">Shep</h2>
+      <p class="section-subtitle">Travel baseball, live scores, maps, highlights, photos, and videos.</p>
 
-            <div class="button-grid">
-              <a class="btn btn-primary" href="PASTE_SCARLETT_GAME_DAY_LINK_HERE" target="_blank" rel="noopener">Game Day</a>
-              <a class="btn btn-secondary" href="PASTE_SCARLETT_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
-              <a class="btn btn-secondary" href="PASTE_SCARLETT_STANDINGS_LINK_HERE" target="_blank" rel="noopener">Standings</a>
-              <a class="btn btn-secondary" href="PASTE_SCARLETT_MAP_LINK_HERE" target="_blank" rel="noopener">Field Map</a>
-            </div>
+      <div class="grid">
+        <article class="card span-4 shep-theme">
+          <div class="card-top">
+            <div class="tag">Travel Baseball</div>
+            <h3 class="kid-title">Shep</h3>
+            <p class="team-name">Team: Lobos 12U</p>
+          </div>
+          <div class="card-body">
+            <p class="desc">Everything for game day, team pages, fields, and media.</p>
 
-            <div class="meta-list">
-              <div class="meta-item">
-                <span class="meta-label">Sport</span>
-                <span>Soccer</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Colors</span>
-                <span>White, Black & Red</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Highlights</span>
-                <a href="PASTE_SCARLETT_HIGHLIGHTS_LINK_HERE" target="_blank" rel="noopener">Open</a>
-              </div>
-            </div>
+            <div class="button-grid">
+              <a class="btn btn-primary" href="PASTE_SHEP_GAMECHANGER_LIVE_LINK_HERE" target="_blank" rel="noopener">Live Score</a>
+              <a class="btn btn-secondary" href="PASTE_SHEP_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
+              <a class="btn btn-secondary" href="PASTE_SHEP_TEAM_PAGE_LINK_HERE" target="_blank" rel="noopener">Team Page</a>
+              <a class="btn btn-secondary" href="PASTE_SHEP_PRIMARY_FIELD_LINK_HERE" target="_blank" rel="noopener">Field Map</a>
+            </div>
 
-            <div class="note-banner">
-              You can use the main Game Day button for live bracket pages, match trackers, club apps, or streaming links.
-            </div>
-          </div>
-        </article>
+            <div class="stat-list">
+              <div class="stat"><span>Color Theme</span><strong>Neon Orange</strong></div>
+              <div class="stat"><span>Primary App</span><strong>GameChanger</strong></div>
+              <div class="stat"><span>Highlights</span><a href="PASTE_SHEP_HIGHLIGHTS_LINK_HERE" target="_blank" rel="noopener">Open</a></div>
+            </div>
 
-        <article class="card scarlett card-half">
-          <div class="card-top">
-            <div class="tag">Photos & Videos</div>
-            <h3 class="kid-name">Scarlett Media</h3>
-            <p class="team-name">Built for OneDrive folder links.</p>
-          </div>
-          <div class="card-body">
-            <p class="desc">
-              Keep photos and videos in separate OneDrive folders so family can quickly find matches, goals, and highlights.
-            </p>
+            <div class="note">
+              Want a real scoreboard here later? Replace the dashed widget shell in Live Hub with your GameChanger embed code when available.
+            </div>
+          </div>
+        </article>
 
-            <div class="media-grid">
-              <div class="media-box">
-                <h4>Photos Folder</h4>
-                <p>Action shots, team photos, tournaments, and family sideline pics.</p>
-                <div class="button-grid">
-                  <a class="btn btn-primary" href="PASTE_SCARLETT_ONEDRIVE_PHOTOS_FOLDER_LINK_HERE" target="_blank" rel="noopener">Open Photos</a>
-                  <a class="btn btn-outline" href="PASTE_SCARLETT_ONEDRIVE_PHOTOS_UPLOAD_LINK_HERE" target="_blank" rel="noopener">Upload Photos</a>
-                </div>
-                <div class="media-preview">
-                  Optional embed area for a public OneDrive gallery or shared album.
-                </div>
-              </div>
+        <article class="card span-8 shep-theme">
+          <div class="card-top">
+            <div class="tag">Photo Gallery</div>
+            <h3 class="kid-title">Shep Photos</h3>
+            <p class="team-name">Built with the photos you shared.</p>
+          </div>
+          <div class="card-body">
+            <div class="button-grid">
+              <a class="btn btn-primary" href="PASTE_SHEP_ONEDRIVE_PHOTOS_FOLDER_HERE" target="_blank" rel="noopener">Open Photos</a>
+              <a class="btn btn-secondary" href="PASTE_SHEP_ONEDRIVE_PHOTOS_UPLOAD_HERE" target="_blank" rel="noopener">Upload Photos</a>
+              <a class="btn btn-secondary" href="PASTE_SHEP_ONEDRIVE_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener">Open Videos</a>
+              <a class="btn btn-secondary" href="PASTE_SHEP_ONEDRIVE_VIDEOS_UPLOAD_HERE" target="_blank" rel="noopener">Upload Videos</a>
+            </div>
 
-              <div class="media-box">
-                <h4>Videos Folder</h4>
-                <p>Goals, assists, clips, full-game film, and favorite highlight moments.</p>
-                <div class="button-grid">
-                  <a class="btn btn-primary" href="PASTE_SCARLETT_ONEDRIVE_VIDEOS_FOLDER_LINK_HERE" target="_blank" rel="noopener">Open Videos</a>
-                  <a class="btn btn-outline" href="PASTE_SCARLETT_ONEDRIVE_VIDEOS_UPLOAD_LINK_HERE" target="_blank" rel="noopener">Upload Videos</a>
-                </div>
-                <div class="media-preview">
-                  Add a best-of playlist or shared album link here if you want a “top clips” section.
-                </div>
-              </div>
-            </div>
+            <div class="gallery">
+              <figure><img src="images/shep-canyon.jpg" alt="Shep with siblings in canyon"><figcaption>Canyon trip</figcaption></figure>
+              <figure><img src="images/shep-baseball-orange.jpg" alt="Shep in Lobos uniform"><figcaption>Lobos uniform</figcaption></figure>
+              <figure><img src="images/shep-ring.jpg" alt="Shep showing ring"><figcaption>Championship ring</figcaption></figure>
+              <figure><img src="images/shep-basketball-medal.jpg" alt="Shep basketball photo"><figcaption>Basketball season</figcaption></figure>
+              <figure><img src="images/shep-siblings-medals.jpg" alt="Shep with Scarlett and Beau medals"><figcaption>Sibling medal photo</figcaption></figure>
+            </div>
 
-            <div class="small-note">
-              Folder naming idea: <strong>Scarlett / Photos</strong> and <strong>Scarlett / Videos</strong>.
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+            <div class="video-grid">
+              <div class="video-box">
+                <h4>Shep Highlights</h4>
+                <p>Paste video links or keep using OneDrive folders for clips and saved games.</p>
+                <a class="btn btn-primary" href="PASTE_SHEP_HIGHLIGHT_VIDEO_LINK_HERE" target="_blank" rel="noopener">Watch Highlight</a>
+              </div>
+              <div class="video-box">
+                <h4>Game Footage Folder</h4>
+                <p>Use for at-bats, fielding clips, tournament video, or livestream saves.</p>
+                <a class="btn btn-secondary" href="PASTE_SHEP_ONEDRIVE_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener">Open Video Folder</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-    <!-- BEAU -->
-    <section class="section" id="beau">
-      <h2 class="section-title">Beau</h2>
-      <p class="section-subtitle">Sports, activities, schedule, and media in one place.</p>
+    <section class="section" id="scarlett">
+      <h2 class="section-title">Scarlett</h2>
+      <p class="section-subtitle">Soccer, basketball, portraits, game-day links, and media.</p>
 
-      <div class="grid">
-        <article class="card beau card-half">
-          <div class="card-top">
-            <div class="tag">Sports / Activities</div>
-            <h3 class="kid-name">Beau</h3>
-            <p class="team-name">Team / Activity: PASTE_BEAU_TEAM_OR_ACTIVITY_NAME</p>
-          </div>
-          <div class="card-body">
-            <p class="desc">
-              Keep Beau’s events, schedule, team links, maps, and highlights easy to find for family and friends.
-            </p>
+      <div class="grid">
+        <article class="card span-4 scarlett-theme">
+          <div class="card-top">
+            <div class="tag">Soccer + More</div>
+            <h3 class="kid-title">Scarlett</h3>
+            <p class="team-name">Soccer / Basketball / Family favorites</p>
+          </div>
+          <div class="card-body">
+            <p class="desc">Schedule, standings, fields, photos, and videos in one spot.</p>
 
-            <div class="button-grid">
-              <a class="btn btn-primary" href="PASTE_BEAU_MAIN_LINK_HERE" target="_blank" rel="noopener">Main Link</a>
-              <a class="btn btn-secondary" href="PASTE_BEAU_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
-              <a class="btn btn-secondary" href="PASTE_BEAU_TEAM_OR_STATS_LINK_HERE" target="_blank" rel="noopener">Team / Stats</a>
-              <a class="btn btn-secondary" href="PASTE_BEAU_MAP_LINK_HERE" target="_blank" rel="noopener">Map</a>
-            </div>
+            <div class="button-grid">
+              <a class="btn btn-primary" href="PASTE_SCARLETT_GAME_DAY_LINK_HERE" target="_blank" rel="noopener">Game Day</a>
+              <a class="btn btn-secondary" href="PASTE_SCARLETT_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
+              <a class="btn btn-secondary" href="PASTE_SCARLETT_STANDINGS_LINK_HERE" target="_blank" rel="noopener">Standings</a>
+              <a class="btn btn-secondary" href="PASTE_SCARLETT_PRIMARY_FIELD_LINK_HERE" target="_blank" rel="noopener">Field Map</a>
+            </div>
 
-            <div class="meta-list">
-              <div class="meta-item">
-                <span class="meta-label">Sport / Focus</span>
-                <span>PASTE_BEAU_SPORT_OR_ACTIVITY</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Color</span>
-                <span>Red</span>
-              </div>
-              <div class="meta-item">
-                <span class="meta-label">Highlights</span>
-                <a href="PASTE_BEAU_HIGHLIGHTS_LINK_HERE" target="_blank" rel="noopener">Open</a>
-              </div>
-            </div>
+            <div class="stat-list">
+              <div class="stat"><span>Color Theme</span><strong>Neon Red</strong></div>
+              <div class="stat"><span>Main Sports</span><strong>Soccer / Basketball</strong></div>
+              <div class="stat"><span>Highlights</span><a href="PASTE_SCARLETT_HIGHLIGHTS_LINK_HERE" target="_blank" rel="noopener">Open</a></div>
+            </div>
 
-            <div class="note-banner">
-              This section works great for games, practices, school activities, tournaments, or performances.
-            </div>
-          </div>
-        </article>
+            <div class="note">
+              This section works great for AVSA pages, club apps, bracket links, and tournament recaps.
+            </div>
+          </div>
+        </article>
 
-        <article class="card beau card-half">
-          <div class="card-top">
-            <div class="tag">Photos & Videos</div>
-            <h3 class="kid-name">Beau Media</h3>
-            <p class="team-name">Use OneDrive folders here too.</p>
-          </div>
-          <div class="card-body">
-            <p class="desc">
-              Keep Beau’s photos and videos in separate shared folders so it stays simple and organized.
-            </p>
+        <article class="card span-8 scarlett-theme">
+          <div class="card-top">
+            <div class="tag">Photo Gallery</div>
+            <h3 class="kid-title">Scarlett Photos</h3>
+            <p class="team-name">Soccer, basketball, portraits, and family shots.</p>
+          </div>
+          <div class="card-body">
+            <div class="button-grid">
+              <a class="btn btn-primary" href="PASTE_SCARLETT_ONEDRIVE_PHOTOS_FOLDER_HERE" target="_blank" rel="noopener">Open Photos</a>
+              <a class="btn btn-secondary" href="PASTE_SCARLETT_ONEDRIVE_PHOTOS_UPLOAD_HERE" target="_blank" rel="noopener">Upload Photos</a>
+              <a class="btn btn-secondary" href="PASTE_SCARLETT_ONEDRIVE_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener">Open Videos</a>
+              <a class="btn btn-secondary" href="PASTE_SCARLETT_ONEDRIVE_VIDEOS_UPLOAD_HERE" target="_blank" rel="noopener">Upload Videos</a>
+            </div>
 
-            <div class="media-grid">
-              <div class="media-box">
-                <h4>Photos Folder</h4>
-                <p>Practice pics, game pics, milestones, team shots, and family favorites.</p>
-                <div class="button-grid">
-                  <a class="btn btn-primary" href="PASTE_BEAU_ONEDRIVE_PHOTOS_FOLDER_LINK_HERE" target="_blank" rel="noopener">Open Photos</a>
-                  <a class="btn btn-outline" href="PASTE_BEAU_ONEDRIVE_PHOTOS_UPLOAD_LINK_HERE" target="_blank" rel="noopener">Upload Photos</a>
-                </div>
-                <div class="media-preview">
-                  Optional OneDrive embed area if you want the gallery visible right on the page.
-                </div>
-              </div>
+            <div class="gallery">
+              <figure><img src="images/scarlett-closeup-bow.jpg" alt="Scarlett close-up with bow"><figcaption>Close-up smile</figcaption></figure>
+              <figure><img src="images/scarlett-leopard.jpg" alt="Scarlett in leopard dress"><figcaption>Leopard dress</figcaption></figure>
+              <figure><img src="images/scarlett-snow.jpg" alt="Scarlett in snow"><figcaption>Snow day</figcaption></figure>
+              <figure><img src="images/scarlett-basketball-team.jpg" alt="Scarlett basketball team"><figcaption>Basketball team</figcaption></figure>
+              <figure><img src="images/scarlett-first-day-school.jpg" alt="Scarlett first day of school"><figcaption>First day of school</figcaption></figure>
+              <figure><img src="images/scarlett-soccer-medal.jpg" alt="Scarlett with soccer medal"><figcaption>Soccer medal</figcaption></figure>
+              <figure><img src="images/scarlett-goalpost-full.jpg" alt="Scarlett at soccer goal"><figcaption>Goalpost portrait</figcaption></figure>
+              <figure><img src="images/scarlett-goalpost-close.jpg" alt="Scarlett close-up at soccer goal"><figcaption>Goalpost close-up</figcaption></figure>
+              <figure><img src="images/scarlett-yellow-shirt.jpg" alt="Scarlett in yellow shirt"><figcaption>Yellow jersey smile</figcaption></figure>
+              <figure><img src="images/scarlett-basketball-uniform.jpg" alt="Scarlett in basketball uniform"><figcaption>Basketball uniform</figcaption></figure>
+            </div>
 
-              <div class="media-box">
-                <h4>Videos Folder</h4>
-                <p>Clips, highlights, recaps, and any favorite moments you want easy to share.</p>
-                <div class="button-grid">
-                  <a class="btn btn-primary" href="PASTE_BEAU_ONEDRIVE_VIDEOS_FOLDER_LINK_HERE" target="_blank" rel="noopener">Open Videos</a>
-                  <a class="btn btn-outline" href="PASTE_BEAU_ONEDRIVE_VIDEOS_UPLOAD_LINK_HERE" target="_blank" rel="noopener">Upload Videos</a>
-                </div>
-                <div class="media-preview">
-                  Good spot for a featured clip link or “watch latest” link later on.
-                </div>
-              </div>
-            </div>
+            <div class="video-grid">
+              <div class="video-box">
+                <h4>Scarlett Highlight Clips</h4>
+                <p>Use for goals, tournament clips, or favorite game moments.</p>
+                <a class="btn btn-primary" href="PASTE_SCARLETT_HIGHLIGHT_VIDEO_LINK_HERE" target="_blank" rel="noopener">Watch Highlight</a>
+              </div>
+              <div class="video-box">
+                <h4>Scarlett Video Folder</h4>
+                <p>Keep full game clips or skill videos in your linked folder.</p>
+                <a class="btn btn-secondary" href="PASTE_SCARLETT_ONEDRIVE_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener">Open Video Folder</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-            <div class="small-note">
-              Folder naming idea: <strong>Beau / Photos</strong> and <strong>Beau / Videos</strong>.
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+    <section class="section" id="beau">
+      <h2 class="section-title">Beau</h2>
+      <p class="section-subtitle">Neon green + pink theme with basketball, birthday, and favorite family photos.</p>
 
-    <!-- WEEKEND SCHEDULE -->
-    <section class="section" id="weekend">
-      <h2 class="section-title">This Weekend</h2>
-      <p class="section-subtitle">Replace the sample items below with your real games and events.</p>
+      <div class="grid">
+        <article class="card span-4 beau-theme">
+          <div class="card-top">
+            <div class="tag">Beau Zone</div>
+            <h3 class="kid-title">Beau</h3>
+            <p class="team-name">Basketball / Family / Future athlete</p>
+          </div>
+          <div class="card-body">
+            <p class="desc">A bright section for Beau’s events, photos, videos, and future sports links.</p>
 
-      <div class="grid">
-        <article class="card card-half">
-          <div class="card-top neutral-top">
-            <h3>Upcoming Schedule</h3>
-            <p class="team-name">Simple family view for the next events.</p>
-          </div>
-          <div class="card-body schedule-wrap">
-            <table>
-              <thead>
-                <tr>
-                  <th>Day</th>
-                  <th>Kid</th>
-                  <th>Event</th>
-                  <th>Time</th>
-                  <th>Location</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>Saturday</td>
-                  <td>Shep</td>
-                  <td>Lobos 12U vs Opponent</td>
-                  <td>10:00 AM</td>
-                  <td>PASTE_LOCATION</td>
-                </tr>
-                <tr>
-                  <td>Saturday</td>
-                  <td>Scarlett</td>
-                  <td>League Match</td>
-                  <td>1:30 PM</td>
-                  <td>PASTE_LOCATION</td>
-                </tr>
-                <tr>
-                  <td>Sunday</td>
-                  <td>Beau</td>
-                  <td>Practice / Game / Event</td>
-                  <td>3:00 PM</td>
-                  <td>PASTE_LOCATION</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </article>
+            <div class="button-grid">
+              <a class="btn btn-primary" href="PASTE_BEAU_MAIN_LINK_HERE" target="_blank" rel="noopener">Main Link</a>
+              <a class="btn btn-secondary" href="PASTE_BEAU_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
+              <a class="btn btn-secondary" href="PASTE_BEAU_PRIMARY_LOCATION_LINK_HERE" target="_blank" rel="noopener">Map</a>
+              <a class="btn btn-secondary" href="PASTE_BEAU_TEAM_OR_STATS_LINK_HERE" target="_blank" rel="noopener">Team / Stats</a>
+            </div>
 
-        <article class="card card-half">
-          <div class="card-top neutral-top">
-            <h3>Quick Game-Day Shortcuts</h3>
-            <p class="team-name">Fast access from your phone.</p>
-          </div>
-          <div class="card-body">
-            <div class="button-grid">
-              <a class="btn btn-primary" href="PASTE_SHEP_LIVE_SCORE_LINK_HERE" target="_blank" rel="noopener">Shep Live</a>
-              <a class="btn btn-secondary" href="PASTE_SCARLETT_GAME_DAY_LINK_HERE" target="_blank" rel="noopener">Scarlett Game Day</a>
-              <a class="btn btn-secondary" href="PASTE_BEAU_MAIN_LINK_HERE" target="_blank" rel="noopener">Beau Main</a>
-              <a class="btn btn-secondary" href="PASTE_FAMILY_CALENDAR_LINK_HERE" target="_blank" rel="noopener">Family Calendar</a>
-            </div>
+            <div class="stat-list">
+              <div class="stat"><span>Color Theme</span><strong>Neon Green + Pink</strong></div>
+              <div class="stat"><span>Main Focus</span><strong>Basketball / Family</strong></div>
+              <div class="stat"><span>Highlights</span><a href="PASTE_BEAU_HIGHLIGHTS_LINK_HERE" target="_blank" rel="noopener">Open</a></div>
+            </div>
 
-            <div class="note-banner">
-              On iPhone: open this page in Safari, tap <strong>Share</strong>, then tap <strong>Add to Home Screen</strong> for a one-tap sports hub icon.
-            </div>
+            <div class="note">
+              This one is flexible — school events, basketball, birthday memories, or whatever comes next.
+            </div>
+          </div>
+        </article>
 
-            <div class="small-note">
-              If you eventually want this schedule to auto-update, I can help you turn it into a version tied to a shared calendar.
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+        <article class="card span-8 beau-theme">
+          <div class="card-top">
+            <div class="tag">Photo Gallery</div>
+            <h3 class="kid-title">Beau Photos</h3>
+            <p class="team-name">Built from the Beau photos you shared.</p>
+          </div>
+          <div class="card-body">
+            <div class="button-grid">
+              <a class="btn btn-primary" href="PASTE_BEAU_ONEDRIVE_PHOTOS_FOLDER_HERE" target="_blank" rel="noopener">Open Photos</a>
+              <a class="btn btn-secondary" href="PASTE_BEAU_ONEDRIVE_PHOTOS_UPLOAD_HERE" target="_blank" rel="noopener">Upload Photos</a>
+              <a class="btn btn-secondary" href="PASTE_BEAU_ONEDRIVE_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener">Open Videos</a>
+              <a class="btn btn-secondary" href="PASTE_BEAU_ONEDRIVE_VIDEOS_UPLOAD_HERE" target="_blank" rel="noopener">Upload Videos</a>
+            </div>
 
-    <!-- MEDIA HUB -->
-    <section class="section" id="media-hub">
-      <h2 class="section-title">Family Media Hub</h2>
-      <p class="section-subtitle">A simple top-level place for all photos and videos.</p>
+            <div class="gallery">
+              <figure><img src="images/beau-project.jpg" alt="Beau holding project"><figcaption>School project</figcaption></figure>
+              <figure><img src="images/beau-canyon.jpg" alt="Beau with siblings in canyon"><figcaption>Canyon trip</figcaption></figure>
+              <figure><img src="images/beau-basketball-portrait.jpg" alt="Beau basketball portrait"><figcaption>Basketball portrait</figcaption></figure>
+              <figure><img src="images/beau-peace-sign.jpg" alt="Beau smiling with peace sign"><figcaption>Peace sign</figcaption></figure>
+              <figure><img src="images/beau-birthday-blue.jpg" alt="Beau birthday shirt photo"><figcaption>Birthday smile</figcaption></figure>
+              <figure><img src="images/beau-siblings-medals.jpg" alt="Beau with siblings medals"><figcaption>Sibling medal photo</figcaption></figure>
+            </div>
 
-      <div class="grid">
-        <article class="card card-third">
-          <div class="card-top neutral-top">
-            <h3>All Photos</h3>
-            <p class="team-name">Master family photo folder</p>
-          </div>
-          <div class="card-body">
-            <div class="resource-list">
-              <a class="resource-item" href="PASTE_MASTER_FAMILY_PHOTOS_FOLDER_LINK_HERE" target="_blank" rel="noopener">
-                <span>Open Family Photos</span>
-                <span>→</span>
-              </a>
-              <a class="resource-item" href="PASTE_MASTER_FAMILY_PHOTOS_UPLOAD_LINK_HERE" target="_blank" rel="noopener">
-                <span>Upload New Photos</span>
-                <span>↑</span>
-              </a>
-            </div>
-          </div>
-        </article>
+            <div class="video-grid">
+              <div class="video-box">
+                <h4>Beau Highlight Clips</h4>
+                <p>Use for basketball clips, school performances, or family favorites.</p>
+                <a class="btn btn-primary" href="PASTE_BEAU_HIGHLIGHT_VIDEO_LINK_HERE" target="_blank" rel="noopener">Watch Highlight</a>
+              </div>
+              <div class="video-box">
+                <h4>Beau Video Folder</h4>
+                <p>Keep clips and memories in OneDrive and launch them from here.</p>
+                <a class="btn btn-secondary" href="PASTE_BEAU_ONEDRIVE_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener">Open Video Folder</a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <article class="card card-third">
-          <div class="card-top neutral-top">
-            <h3>All Videos</h3>
-            <p class="team-name">Master family video folder</p>
-          </div>
-          <div class="card-body">
-            <div class="resource-list">
-              <a class="resource-item" href="PASTE_MASTER_FAMILY_VIDEOS_FOLDER_LINK_HERE" target="_blank" rel="noopener">
-                <span>Open Family Videos</span>
-                <span>→</span>
-              </a>
-              <a class="resource-item" href="PASTE_MASTER_FAMILY_VIDEOS_UPLOAD_LINK_HERE" target="_blank" rel="noopener">
-                <span>Upload New Videos</span>
-                <span>↑</span>
-              </a>
-            </div>
-          </div>
-        </article>
+    <section class="section" id="family-gallery">
+      <h2 class="section-title">Family Gallery</h2>
+      <p class="section-subtitle">A few family favorites right on the homepage.</p>
 
-        <article class="card card-third">
-          <div class="card-top neutral-top">
-            <h3>Favorite Highlights</h3>
-            <p class="team-name">Best moments and top clips</p>
-          </div>
-          <div class="card-body">
-            <div class="resource-list">
-              <a class="resource-item" href="PASTE_TOP_HIGHLIGHTS_LINK_HERE" target="_blank" rel="noopener">
-                <span>Open Highlights</span>
-                <span>▶</span>
-              </a>
-              <a class="resource-item" href="PASTE_FAMILY_SHARED_ALBUM_LINK_HERE" target="_blank" rel="noopener">
-                <span>Shared Album</span>
-                <span>📸</span>
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+      <div class="hero-family">
+        <div class="family-card">
+          <img src="images/family-canyon.jpg" alt="Ivey family in canyon">
+          <div>Family canyon photo</div>
+        </div>
+        <div class="family-card">
+          <img src="images/kids-canyon.jpg" alt="Kids in canyon">
+          <div>Kids canyon photo</div>
+        </div>
+        <div class="family-card">
+          <img src="images/siblings-medals.jpg" alt="Kids with medals">
+          <div>Sibling medals</div>
+        </div>
+      </div>
+    </section>
 
-    <!-- RESOURCES -->
-    <section class="section" id="resources">
-      <h2 class="section-title">Maps, Resources & Extras</h2>
-      <p class="section-subtitle">Useful links for games, fields, and family sharing.</p>
+    <section class="section" id="weekend">
+      <h2 class="section-title">Weekend Schedule</h2>
+      <p class="section-subtitle">Replace the sample rows with your real schedule.</p>
 
-      <div class="grid">
-        <article class="card card-half">
-          <div class="card-top neutral-top">
-            <h3>Field & Venue Links</h3>
-            <p class="team-name">Maps for tournaments, soccer fields, and events.</p>
-          </div>
-          <div class="card-body">
-            <div class="resource-list">
-              <a class="resource-item" href="PASTE_SHEP_PRIMARY_FIELD_LINK_HERE" target="_blank" rel="noopener">
-                <span>Shep Primary Field</span>
-                <span>📍</span>
-              </a>
-              <a class="resource-item" href="PASTE_SCARLETT_PRIMARY_FIELD_LINK_HERE" target="_blank" rel="noopener">
-                <span>Scarlett Primary Field</span>
-                <span>📍</span>
-              </a>
-              <a class="resource-item" href="PASTE_BEAU_PRIMARY_LOCATION_LINK_HERE" target="_blank" rel="noopener">
-                <span>Beau Primary Location</span>
-                <span>📍</span>
-              </a>
-              <a class="resource-item" href="PASTE_TOURNAMENT_COMPLEX_LINK_HERE" target="_blank" rel="noopener">
-                <span>Tournament / Event Complex</span>
-                <span>📍</span>
-              </a>
-            </div>
-          </div>
-        </article>
+      <div class="card">
+        <div class="card-top">
+          <h3 class="kid-title">Upcoming Events</h3>
+          <p class="team-name">Easy one-page family view</p>
+        </div>
+        <div class="card-body table-wrap">
+          <table class="schedule-table">
+            <thead>
+              <tr>
+                <th>Day</th>
+                <th>Kid</th>
+                <th>Event</th>
+                <th>Time</th>
+                <th>Location</th>
+                <th>Link</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Saturday</td>
+                <td>Shep</td>
+                <td>Lobos 12U vs Opponent</td>
+                <td>10:00 AM</td>
+                <td>PASTE_FIELD_NAME</td>
+                <td><a href="PASTE_SHEP_GAMECHANGER_LIVE_LINK_HERE" target="_blank" rel="noopener">Open</a></td>
+              </tr>
+              <tr>
+                <td>Saturday</td>
+                <td>Scarlett</td>
+                <td>Soccer Match</td>
+                <td>1:30 PM</td>
+                <td>PASTE_SOCCER_FIELD_NAME</td>
+                <td><a href="PASTE_SCARLETT_GAME_DAY_LINK_HERE" target="_blank" rel="noopener">Open</a></td>
+              </tr>
+              <tr>
+                <td>Sunday</td>
+                <td>Beau</td>
+                <td>Basketball / Event</td>
+                <td>3:00 PM</td>
+                <td>PASTE_BEAU_LOCATION</td>
+                <td><a href="PASTE_BEAU_MAIN_LINK_HERE" target="_blank" rel="noopener">Open</a></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
 
-        <article class="card card-half">
-          <div class="card-top neutral-top">
-            <h3>Family Extras</h3>
-            <p class="team-name">Anything else you want family to find quickly.</p>
-          </div>
-          <div class="card-body">
-            <div class="resource-list">
-              <a class="resource-item" href="PASTE_TEAM_COMMUNICATION_LINK_HERE" target="_blank" rel="noopener">
-                <span>Team Chat / Communication</span>
-                <span>💬</span>
-              </a>
-              <a class="resource-item" href="PASTE_WEATHER_LINK_HERE" target="_blank" rel="noopener">
-                <span>Weather / Radar</span>
-                <span>☁️</span>
-              </a>
-              <a class="resource-item" href="PASTE_HOTEL_OR_TRAVEL_INFO_LINK_HERE" target="_blank" rel="noopener">
-                <span>Travel / Hotel Info</span>
-                <span>🧳</span>
-              </a>
-              <a class="resource-item" href="PASTE_NOTES_OR_ANNOUNCEMENTS_LINK_HERE" target="_blank" rel="noopener">
-                <span>Notes / Announcements</span>
-                <span>📝</span>
-              </a>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-  </main>
+    <section class="section" id="resources">
+      <h2 class="section-title">Maps & Resources</h2>
+      <p class="section-subtitle">Field links, weather, folders, and family extras.</p>
 
-  <footer class="footer">
-    Built for the Ivey family sports crew. Update links anytime to keep scores, schedules, photos, and videos all in one place.
-  </footer>
+      <div class="grid">
+        <article class="card span-6">
+          <div class="card-top">
+            <h3 class="kid-title">Field Maps</h3>
+            <p class="team-name">Add your most-used fields here.</p>
+          </div>
+          <div class="card-body">
+            <div class="resource-list">
+              <a class="resource-item" href="PASTE_SHEP_PRIMARY_FIELD_LINK_HERE" target="_blank" rel="noopener"><span>Shep Primary Field</span><span>📍</span></a>
+              <a class="resource-item" href="PASTE_SCARLETT_PRIMARY_FIELD_LINK_HERE" target="_blank" rel="noopener"><span>Scarlett Primary Field</span><span>📍</span></a>
+              <a class="resource-item" href="PASTE_BEAU_PRIMARY_LOCATION_LINK_HERE" target="_blank" rel="noopener"><span>Beau Primary Location</span><span>📍</span></a>
+              <a class="resource-item" href="PASTE_TOURNAMENT_COMPLEX_LINK_HERE" target="_blank" rel="noopener"><span>Tournament Complex</span><span>📍</span></a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card span-6">
+          <div class="card-top">
+            <h3 class="kid-title">OneDrive & Extras</h3>
+            <p class="team-name">Folders and useful links for the whole family.</p>
+          </div>
+          <div class="card-body">
+            <div class="resource-list">
+              <a class="resource-item" href="PASTE_MASTER_FAMILY_PHOTOS_FOLDER_HERE" target="_blank" rel="noopener"><span>Family Photos Folder</span><span>📸</span></a>
+              <a class="resource-item" href="PASTE_MASTER_FAMILY_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener"><span>Family Videos Folder</span><span>🎥</span></a>
+              <a class="resource-item" href="PASTE_WEATHER_RADAR_LINK_HERE" target="_blank" rel="noopener"><span>Weather / Radar</span><span>☁️</span></a>
+              <a class="resource-item" href="PASTE_PARENT_GROUP_CHAT_LINK_HERE" target="_blank" rel="noopener"><span>Parent Group Chat</span><span>💬</span></a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Built for the Ivey family. Update the links anytime and drop new media into your folders as the seasons roll on.
+  </footer>
+
 </body>
 </html>
