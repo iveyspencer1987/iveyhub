@@ -291,58 +291,46 @@ maxVerticalGamesVisible:4
 <!--        CALENDAR SCRIPT            -->
 <!-- ================================= -->
 
-<script>
+const calendarEvents = [
 
-const calendar = document.getElementById("calendar")
-const monthLabel = document.getElementById("calendarMonth")
+  // ⚾ SHEP TOURNAMENTS
+  { date:"2026-03-13", title:"Lobos Tournament - Conway", type:"shep"},
+  { date:"2026-03-14", title:"Lobos Tournament - Conway", type:"shep"},
+  { date:"2026-03-15", title:"Bracket Game 8:00 AM - Conway", type:"shep"},
 
-const today = new Date()
-let currentMonth = today.getMonth()
-let currentYear = today.getFullYear()
+  { date:"2026-04-04", title:"Easter Bash - Conway", type:"shep"},
 
-function renderCalendar(){
+  { date:"2026-04-10", title:"Super Regionals - Cabot", type:"shep"},
+  { date:"2026-04-11", title:"Super Regionals - Cabot", type:"shep"},
+  { date:"2026-04-12", title:"Super Regionals - Cabot", type:"shep"},
 
-const firstDay = new Date(currentYear,currentMonth,1).getDay()
-const daysInMonth = new Date(currentYear,currentMonth+1,0).getDate()
 
-monthLabel.innerText =
-new Date(currentYear,currentMonth).toLocaleString('default',{month:'long'})+
-" "+currentYear
+  // ⚽ SCARLETT SOCCER
+  { date:"2026-03-21", title:"11:15 AM Brown vs Rogers - AVSA Field 2A", type:"scarlett"},
+  { date:"2026-04-04", title:"11:15 AM Brown vs Robinson - AVSA Field 2A", type:"scarlett"},
+  { date:"2026-04-11", title:"11:15 AM Brown vs Collins - AVSA Field 2A", type:"scarlett"},
+  { date:"2026-04-18", title:"11:15 AM Rogers vs Brown - AVSA Field 2A", type:"scarlett"},
+  { date:"2026-04-25", title:"9:30 AM Robinson vs Brown - AVSA Field 9", type:"scarlett"},
+  { date:"2026-05-02", title:"9:30 AM Collins vs Brown - AVSA Field 9", type:"scarlett"},
+  { date:"2026-05-09", title:"9:30 AM Brown vs Rogers - AVSA Field 9", type:"scarlett"},
 
-calendar.innerHTML=""
 
-let grid=document.createElement("div")
-grid.style.display="grid"
-grid.style.gridTemplateColumns="repeat(7,1fr)"
-grid.style.gap="6px"
+  // 🟢 BEAU BRAVES
 
-for(let i=0;i<firstDay;i++){
-grid.innerHTML+="<div></div>"
-}
+  { date:"2026-04-27", title:"5:20 PM Orioles vs Braves - Hickey Field 7", type:"beau"},
+  { date:"2026-05-02", title:"1:00 PM Braves Practice - Hickey Field 4", type:"beau"},
+  { date:"2026-05-04", title:"6:20 PM Pirates vs Braves - Hickey Field 7", type:"beau"},
+  { date:"2026-05-07", title:"5:20 PM Braves vs Orioles - Hickey Field 7", type:"beau"},
+  { date:"2026-05-09", title:"1:00 PM Braves Practice - Hickey Field 4", type:"beau"},
+  { date:"2026-05-11", title:"6:20 PM Braves vs Cubs - Hickey Field 7", type:"beau"},
+  { date:"2026-05-14", title:"5:20 PM Orioles vs Braves - Hickey Field 7", type:"beau"},
 
-for(let d=1; d<=daysInMonth; d++){
 
-let day=document.createElement("div")
+  // 👨‍👩‍👧‍👦 FAMILY TRAINING
+  { date:"2026-03-20", title:"Family 3v3 Practice", type:"family"},
+  { date:"2026-03-27", title:"Family 3v3 Practice", type:"family"}
 
-day.style.background="#ffffff"
-day.style.color="#000"
-day.style.padding="10px"
-day.style.borderRadius="6px"
-day.style.minHeight="60px"
-
-day.innerText=d
-
-grid.appendChild(day)
-
-}
-
-calendar.appendChild(grid)
-
-}
-
-renderCalendar()
-
-</script>
+]
 
 </body>
 </html>
