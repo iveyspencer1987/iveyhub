@@ -728,7 +728,18 @@
           <div class="card-top">
             <div class="tag">Shep Live</div>
             <h3 class="kid-title">Baseball</h3>
-            <p class="team-name">Lobos 12U</p>
+            <p class="team-name">Lobos 12U</<!-- Put this div wherever you want the widget to be embedded -->
+<div id="gc-schedule-widget-ms7z"></div>
+
+<!-- Put this before the closing </body> tag -->
+<script src="https://widgets.gc.com/static/js/sdk.v1.js"></script>
+<script>
+    window.GC.team.schedule.init({
+        target: "#gc-schedule-widget-ms7z",
+        widgetId: "a9d47127-73de-4059-89a0-c22ef0c7b217",
+        maxVerticalGamesVisible: 4,
+    })
+</script>    
           </div>
           <div class="card-body">
             <div class="button-grid">
