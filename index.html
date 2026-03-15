@@ -1,15 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Ivey Family Sports Hub</title>
 
 <style>
 
 body{
-font-family:Arial, Helvetica, sans-serif;
+font-family: Arial, Helvetica, sans-serif;
 margin:0;
 padding:20px;
 color:#ffffff;
@@ -21,63 +22,117 @@ url("images/family-background.jpg") center center / cover no-repeat fixed;
 
 h1{
 text-align:center;
-margin-bottom:10px;
-color:#ffffff;
-text-shadow:0 2px 8px rgba(0,0,0,.4);
+margin-bottom:20px;
+font-size:2.5rem;
+text-shadow:0 3px 12px rgba(0,0,0,.4);
 }
 
 .card{
 background:rgba(255,255,255,0.18);
 border:1px solid rgba(255,255,255,0.25);
-border-radius:16px;
-padding:16px;
-margin-bottom:20px;
+border-radius:20px;
+padding:20px;
+margin-bottom:24px;
+
 backdrop-filter:blur(10px);
 -webkit-backdrop-filter:blur(10px);
-box-shadow:0 8px 24px rgba(0,0,0,.25);
+
+box-shadow:0 10px 28px rgba(0,0,0,.25);
+max-width:1100px;
+margin-left:auto;
+margin-right:auto;
 }
 
-button{
-padding:10px 14px;
-border:none;
-border-radius:8px;
+.buttonRow{
+display:flex;
+flex-wrap:wrap;
+gap:12px;
+margin-top:10px;
+}
+
+.hubBtn{
+padding:14px 22px;
+border-radius:14px;
 font-weight:bold;
-cursor:pointer;
-margin-right:8px;
+font-size:1rem;
+text-decoration:none;
+box-shadow:0 4px 10px rgba(0,0,0,.15);
 }
 
 .orange{background:#F28C28;color:white;}
 .red{background:#C94141;color:white;}
-.green{background:#39FF14;color:#111;}
+.green{background:#6CFF3D;color:#111;}
 .blue{background:#1E3A5F;color:white;}
 
 #calendarMonth{
-font-size:20px;
-font-weight:bold;
+font-size:1.8rem;
 margin-bottom:10px;
 }
 
-</style>
+.controls{
+display:flex;
+gap:10px;
+margin-bottom:15px;
+}
 
+.controls button{
+padding:10px 16px;
+border:none;
+border-radius:12px;
+background:#ffffff;
+color:#3b82f6;
+font-weight:bold;
+}
+
+.calendarGrid{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:10px;
+}
+
+.day{
+background:rgba(255,255,255,.22);
+border:1px solid rgba(255,255,255,.25);
+border-radius:14px;
+padding:8px;
+min-height:120px;
+}
+
+.dayNumber{
+font-weight:bold;
+margin-bottom:6px;
+}
+
+.event{
+font-size:.85rem;
+padding:6px;
+margin-top:4px;
+border-radius:8px;
+font-weight:600;
+}
+
+</style>
 </head>
 
 <body>
 
 <h1>Ivey Family Sports Hub</h1>
 
-
 <div class="card">
 
 <h2>Live Hub</h2>
 
-<button class="orange">Shep GameChanger</button>
+<div class="buttonRow">
 
-<button class="red">Scarlett Soccer</button>
+<a class="hubBtn orange" href="#">Shep GameChanger</a>
 
-<button class="green">Beau Braves</button>
+<a class="hubBtn red" href="#">Scarlett Soccer</a>
+
+<a class="hubBtn green" href="#">Beau Braves</a>
 
 </div>
 
+</div>
 
 
 <div class="card">
@@ -86,221 +141,149 @@ margin-bottom:10px;
 
 <div id="calendarMonth"></div>
 
-<div id="nextUpBanner"></div>
+<div id="nextUp"></div>
+
+<div class="controls">
+<button onclick="prevMonth()">Prev</button>
+<button onclick="goToday()">Today</button>
+<button onclick="nextMonth()">Next</button>
+</div>
 
 <div id="calendar"></div>
 
 </div>
 
 
-
 <script>
-
-const calendar = document.getElementById("calendar")
-
-const monthLabel = document.getElementById("calendarMonth")
-
-const nextUpBanner = document.getElementById("nextUpBanner")
 
 const today = new Date()
 
 let currentMonth = today.getMonth()
-
 let currentYear = today.getFullYear()
 
+const calendar = document.getElementById("calendar")
+const monthLabel = document.getElementById("calendarMonth")
+const nextUp = document.getElementById("nextUp")
 
+const events = [
 
-const calendarEvents = [
+{date:"2026-03-13",title:"Lobos Tournament - Conway",type:"shep"},
+{date:"2026-03-14",title:"Lobos Tournament - Conway",type:"shep"},
+{date:"2026-03-15",title:"Bracket Game 8AM - Conway",type:"shep"},
 
-{ date:"2026-03-13", title:"Lobos Tournament - Conway", type:"shep"},
+{date:"2026-03-16",title:"Braves Practice 6:15",type:"beau"},
+{date:"2026-03-20",title:"Family 3v3 Practice",type:"family"},
+{date:"2026-03-21",title:"Braves Practice 1PM",type:"beau"},
+{date:"2026-03-27",title:"Family 3v3 Practice",type:"family"},
+{date:"2026-03-28",title:"Braves Practice 1PM",type:"beau"},
 
-{ date:"2026-03-14", title:"Lobos Tournament - Conway", type:"shep"},
+{date:"2026-04-04",title:"Scarlett vs Robinson",type:"scarlett"},
+{date:"2026-04-06",title:"Braves vs Cubs",type:"beau"},
+{date:"2026-04-09",title:"Orioles vs Braves",type:"beau"},
+{date:"2026-04-11",title:"Scarlett vs Collins",type:"scarlett"},
+{date:"2026-04-20",title:"Braves vs Orioles",type:"beau"},
 
-{ date:"2026-03-15", title:"Bracket Game 8AM - Conway", type:"shep"},
-
-{ date:"2026-03-21", title:"Scarlett vs Rogers 11:15", type:"scarlett"},
-
-{ date:"2026-04-04", title:"Scarlett vs Robinson 11:15", type:"scarlett"},
-
-{ date:"2026-04-11", title:"Scarlett vs Collins 11:15", type:"scarlett"},
-
-{ date:"2026-03-16", title:"Braves Practice 6:15", type:"beau"},
-
-{ date:"2026-03-21", title:"Braves Practice 1:00", type:"beau"},
-
-{ date:"2026-03-28", title:"Braves Practice 1:00", type:"beau"},
-
-{ date:"2026-03-20", title:"Family 3v3 Practice", type:"family"},
-
-{ date:"2026-03-27", title:"Family 3v3 Practice", type:"family"}
+{date:"2026-05-02",title:"Scarlett vs Brown",type:"scarlett"},
+{date:"2026-05-04",title:"Pirates vs Braves",type:"beau"},
+{date:"2026-05-07",title:"Braves vs Orioles",type:"beau"},
+{date:"2026-05-09",title:"Scarlett vs Rogers",type:"scarlett"},
+{date:"2026-05-11",title:"Braves vs Cubs",type:"beau"},
+{date:"2026-05-14",title:"Orioles vs Braves",type:"beau"}
 
 ]
 
+function color(type){
 
-
-function getColor(type){
-
-if(type=="shep") return "#F28C28"
-
-if(type=="scarlett") return "#C94141"
-
-if(type=="beau") return "#39FF14"
+if(type==="shep") return "#F28C28"
+if(type==="scarlett") return "#C94141"
+if(type==="beau") return "#6CFF3D"
 
 return "#1E3A5F"
 
 }
 
-
-
 function renderNextUp(){
 
-let upcoming = calendarEvents
+const upcoming = events
+.filter(e => new Date(e.date) >= today)
 .sort((a,b)=> new Date(a.date)-new Date(b.date))[0]
 
-if(!upcoming) return
+if(!upcoming)return
 
-nextUpBanner.innerHTML=`
-
-<div style="
-padding:12px;
-border-radius:10px;
-background:rgba(255,255,255,.25);
-border:1px solid rgba(255,255,255,.3);
-margin-bottom:10px;
-">
+nextUp.innerHTML=
+`<div class="card" style="margin-top:10px">
 
 <b>Next Up</b><br>
-
 ${upcoming.title}<br>
-
 ${upcoming.date}
 
-</div>
-
-`
+</div>`
 
 }
 
-
-
 function renderCalendar(){
+
+monthLabel.innerText =
+new Date(currentYear,currentMonth)
+.toLocaleString('default',{month:'long'}) +
+" " + currentYear
+
+calendar.innerHTML=""
+
+const grid = document.createElement("div")
+grid.className="calendarGrid"
 
 const firstDay = new Date(currentYear,currentMonth,1).getDay()
 
 const daysInMonth = new Date(currentYear,currentMonth+1,0).getDate()
 
-monthLabel.innerText =
-new Date(currentYear,currentMonth)
-.toLocaleString('default',{month:'long'})+" "+currentYear
-
-calendar.innerHTML=""
-
-let controls=document.createElement("div")
-
-controls.innerHTML=`
-
-<button onclick="prevMonth()">Prev</button>
-
-<button onclick="goToday()">Today</button>
-
-<button onclick="nextMonth()">Next</button>
-
-`
-
-controls.style.marginBottom="10px"
-
-calendar.appendChild(controls)
-
-
-
-let grid=document.createElement("div")
-
-grid.style.display="grid"
-
-grid.style.gridTemplateColumns="repeat(7,1fr)"
-
-grid.style.gap="6px"
-
-
-
 for(let i=0;i<firstDay;i++){
 
-grid.innerHTML+="<div></div>"
+let blank=document.createElement("div")
+grid.appendChild(blank)
 
 }
-
-
 
 for(let d=1;d<=daysInMonth;d++){
 
 let day=document.createElement("div")
+day.className="day"
 
-day.style.background="rgba(255,255,255,.22)"
+let number=document.createElement("div")
+number.className="dayNumber"
+number.innerText=d
 
-day.style.border="1px solid rgba(255,255,255,.25)"
+day.appendChild(number)
 
-day.style.borderRadius="8px"
-
-day.style.padding="10px"
-
-day.style.minHeight="90px"
-
-day.style.backdropFilter="blur(6px)"
-
-day.style.webkitBackdropFilter="blur(6px)"
-
-
-
-let dateKey=
+const dateKey=
 currentYear+"-"+String(currentMonth+1).padStart(2,'0')+"-"+String(d).padStart(2,'0')
 
+events.forEach(e=>{
 
+if(e.date===dateKey){
 
-day.innerHTML="<b>"+d+"</b>"
+let ev=document.createElement("div")
 
+ev.className="event"
+ev.innerText=e.title
 
+ev.style.background=color(e.type)
 
-calendarEvents.forEach(event=>{
-
-if(event.date==dateKey){
-
-let item=document.createElement("div")
-
-item.innerText=event.title
-
-item.style.background=getColor(event.type)
-
-item.style.color="white"
-
-item.style.padding="4px"
-
-item.style.marginTop="4px"
-
-item.style.borderRadius="6px"
-
-item.style.fontSize="11px"
-
-day.appendChild(item)
+day.appendChild(ev)
 
 }
 
 })
 
-
-
 grid.appendChild(day)
 
 }
-
-
 
 calendar.appendChild(grid)
 
 renderNextUp()
 
 }
-
-
 
 function prevMonth(){
 
@@ -309,7 +292,6 @@ currentMonth--
 if(currentMonth<0){
 
 currentMonth=11
-
 currentYear--
 
 }
@@ -318,8 +300,6 @@ renderCalendar()
 
 }
 
-
-
 function nextMonth(){
 
 currentMonth++
@@ -327,7 +307,6 @@ currentMonth++
 if(currentMonth>11){
 
 currentMonth=0
-
 currentYear++
 
 }
@@ -336,19 +315,14 @@ renderCalendar()
 
 }
 
-
-
 function goToday(){
 
 currentMonth=today.getMonth()
-
 currentYear=today.getFullYear()
 
 renderCalendar()
 
 }
-
-
 
 renderCalendar()
 
