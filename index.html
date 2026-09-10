@@ -16,7 +16,7 @@
       --muted:#61758E;
       --card:#F8FBFF;
       --border:#D9E4EF;
-      --shadow:0 16px 36px rgba(20,41,65,.12);
+      --shadow:0 16px 36px rgba(20,41,65,.14);
 
       --shep-orange:#F28C28;
       --shep-black:#121212;
@@ -32,8 +32,13 @@
       --radius:24px;
     }
 
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{
+      box-sizing:border-box;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
 
     body{
       margin:0;
@@ -41,8 +46,8 @@
       color:var(--text);
       background:
         linear-gradient(rgba(10,20,35,.35), rgba(10,20,35,.42)),
-        url("images/family-background.jpg") center center / cover no-repeat fixed;
-      position:relative;
+        url("images/image.jpeg") center center / cover no-repeat fixed;
+      background-color:#1b2c3d;
       overflow-x:hidden;
     }
 
@@ -57,32 +62,9 @@
       height:auto;
     }
 
-    .sports-border{
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      z-index:0;
+    button{
+      font:inherit;
     }
-
-    .ball{
-      position:absolute;
-      width:54px;
-      height:54px;
-      object-fit:contain;
-      opacity:.16;
-      filter:drop-shadow(0 4px 6px rgba(0,0,0,.08));
-    }
-
-    .ball.b1{top:18px;left:18px}
-    .ball.b2{top:110px;right:20px}
-    .ball.b3{top:260px;left:12px}
-    .ball.b4{top:390px;right:14px}
-    .ball.b5{top:580px;left:20px}
-    .ball.b6{top:760px;right:20px}
-    .ball.b7{top:980px;left:12px}
-    .ball.b8{top:1180px;right:18px}
-    .ball.b9{bottom:240px;left:18px}
-    .ball.b10{bottom:90px;right:20px}
 
     .container{
       width:min(1200px, 92%);
@@ -99,6 +81,7 @@
       background:
         linear-gradient(180deg, rgba(20,41,65,.16), rgba(20,41,65,.72)),
         url("images/family-canyon.jpg") center/cover no-repeat;
+      background-color:#31445A;
       border:1px solid rgba(255,255,255,.45);
       border-radius:30px;
       overflow:hidden;
@@ -166,7 +149,7 @@
 
     .section-title{
       margin:0 0 8px;
-      color:#ffffff;
+      color:#fff;
       font-size:1.8rem;
       text-shadow:0 3px 10px rgba(0,0,0,.25);
     }
@@ -180,13 +163,13 @@
 
     .grid{
       display:grid;
-      grid-template-columns:repeat(12, 1fr);
+      grid-template-columns:repeat(12,1fr);
       gap:18px;
     }
 
     .card{
       grid-column:span 12;
-      background:rgba(248,251,255,0.92);
+      background:rgba(248,251,255,.93);
       border:1px solid rgba(255,255,255,.45);
       border-radius:var(--radius);
       overflow:hidden;
@@ -195,7 +178,13 @@
       -webkit-backdrop-filter:blur(10px);
     }
 
-    .span-4,.span-5,.span-6,.span-7,.span-8{grid-column:span 12}
+    .span-4,
+    .span-5,
+    .span-6,
+    .span-7,
+    .span-8{
+      grid-column:span 12;
+    }
 
     @media (min-width:900px){
       .span-4{grid-column:span 4}
@@ -282,31 +271,27 @@
       font-size:.93rem;
     }
 
-    .stat-list{
+    .resource-list{
       display:grid;
       gap:10px;
-      margin-top:16px;
     }
 
-    .stat{
+    .resource-item{
       display:flex;
       justify-content:space-between;
       align-items:center;
       gap:12px;
-      padding:11px 12px;
+      padding:12px 14px;
       border-radius:14px;
       background:#fff;
       border:1px solid var(--border);
-      font-size:.95rem;
-    }
-
-    .stat strong{
       color:var(--navy);
+      font-weight:600;
     }
 
     .gallery{
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(170px, 1fr));
+      grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
       gap:14px;
       margin-top:16px;
     }
@@ -337,54 +322,9 @@
       background:#fff;
     }
 
-    .video-grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-      gap:14px;
-      margin-top:16px;
-    }
-
-    .video-box{
-      min-height:126px;
-      padding:16px;
-      border-radius:16px;
-      background:#fff;
-      border:1px solid var(--border);
-    }
-
-    .video-box h4{
-      margin:0 0 8px;
-      color:var(--navy);
-      font-size:1rem;
-    }
-
-    .video-box p{
-      margin:0 0 12px;
-      color:var(--muted);
-      font-size:.92rem;
-    }
-
-    .resource-list{
-      display:grid;
-      gap:10px;
-    }
-
-    .resource-item{
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:12px;
-      padding:12px 14px;
-      border-radius:14px;
-      background:#fff;
-      border:1px solid var(--border);
-      color:var(--navy);
-      font-weight:600;
-    }
-
     .family-grid{
       display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(190px,1fr));
+      grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
       gap:14px;
     }
 
@@ -407,35 +347,6 @@
       color:var(--muted);
     }
 
-    .lobo-wrap{
-      display:flex;
-      gap:18px;
-      align-items:center;
-      flex-wrap:wrap;
-    }
-
-    .lobo-card{
-      width:min(100%, 320px);
-      background:#fff;
-      border:1px solid var(--border);
-      border-radius:20px;
-      overflow:hidden;
-      box-shadow:var(--shadow);
-    }
-
-    .lobo-card img{
-      width:100%;
-      aspect-ratio:1/1;
-      object-fit:cover;
-      background:#EEF4F9;
-    }
-
-    .lobo-caption{
-      padding:12px 14px;
-      color:var(--muted);
-      font-size:.9rem;
-    }
-
     .calendar-shell{
       background:#fff;
       border:1px solid var(--border);
@@ -449,7 +360,7 @@
       justify-content:space-between;
       gap:12px;
       padding:16px 18px;
-      background:linear-gradient(90deg, var(--navy), var(--asparagus));
+      background:linear-gradient(90deg,var(--navy),var(--asparagus));
       color:#fff;
       flex-wrap:wrap;
     }
@@ -477,7 +388,7 @@
 
     .calendar-grid{
       display:grid;
-      grid-template-columns:repeat(7, 1fr);
+      grid-template-columns:repeat(7,1fr);
       border-top:1px solid var(--border);
     }
 
@@ -492,10 +403,12 @@
       border-right:1px solid var(--border);
     }
 
-    .calendar-dow:last-child{border-right:none}
+    .calendar-dow:last-child{
+      border-right:none;
+    }
 
     .calendar-day{
-      min-height:118px;
+      min-height:126px;
       padding:10px;
       border-right:1px solid var(--border);
       border-top:1px solid var(--border);
@@ -503,7 +416,9 @@
       position:relative;
     }
 
-    .calendar-day:nth-child(7n){border-right:none}
+    .calendar-day:nth-child(7n){
+      border-right:none;
+    }
 
     .calendar-day.other-month{
       background:#FAFCFE;
@@ -531,24 +446,34 @@
       margin-top:6px;
       padding:6px 8px;
       border-radius:10px;
-      font-size:.76rem;
+      font-size:.74rem;
       line-height:1.2;
       font-weight:700;
       color:#fff;
-      white-space:nowrap;
       overflow:hidden;
       text-overflow:ellipsis;
     }
 
-    .event-shep{background:var(--shep-orange)}
-    .event-scarlett{background:var(--scarlett-red)}
-    .event-beau{
-      background:linear-gradient(90deg, var(--beau-green), var(--beau-pink));
+    .event-shep{
+      background:var(--shep-orange);
       color:#111;
     }
-    .event-family{background:var(--navy)}
 
-    .next-up-box{
+    .event-scarlett{
+      background:var(--scarlett-red);
+    }
+
+    .event-beau{
+      background:linear-gradient(90deg,var(--beau-green),var(--beau-pink));
+      color:#111;
+    }
+
+    .event-family{
+      background:var(--navy);
+    }
+
+    .next-up-box,
+    .overlap-box{
       margin-top:16px;
       padding:14px;
       border-radius:16px;
@@ -557,10 +482,20 @@
       box-shadow:var(--shadow);
     }
 
-    .next-up-box strong{
+    .next-up-box strong,
+    .overlap-box strong{
       color:var(--navy);
       display:block;
       margin-bottom:6px;
+    }
+
+    .overlap-item{
+      padding:10px 0;
+      border-top:1px solid var(--border);
+    }
+
+    .overlap-item:first-child{
+      border-top:none;
     }
 
     .gc-widget-box{
@@ -574,6 +509,133 @@
       min-height:120px;
     }
 
+    .schedule-list{
+      display:grid;
+      gap:10px;
+      margin-top:14px;
+    }
+
+    .schedule-item{
+      background:#fff;
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:12px;
+    }
+
+    .schedule-item strong{
+      display:block;
+      color:var(--navy);
+      margin-bottom:4px;
+    }
+
+    .schedule-item span{
+      display:block;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    .shep-theme .card-top{
+      background:linear-gradient(
+        135deg,
+        rgba(242,140,40,.16),
+        rgba(18,18,18,.08)
+      );
+      border-bottom:1px solid #E6C29A;
+    }
+
+    .shep-theme .tag{
+      background:var(--shep-orange);
+      color:#111;
+    }
+
+    .shep-theme .kid-title{
+      color:var(--shep-black);
+    }
+
+    .shep-theme .btn-primary{
+      background:linear-gradient(90deg,var(--shep-orange),#F4A95C);
+      color:#111;
+    }
+
+    .scarlett-theme .card-top{
+      background:linear-gradient(
+        135deg,
+        rgba(201,65,65,.13),
+        rgba(159,208,242,.18),
+        rgba(18,18,18,.04)
+      );
+      border-bottom:1px solid #D9E8F5;
+    }
+
+    .scarlett-theme .tag{
+      background:linear-gradient(
+        90deg,
+        var(--scarlett-red),
+        var(--scarlett-babyblue)
+      );
+      color:#111;
+    }
+
+    .scarlett-theme .kid-title{
+      color:var(--scarlett-black);
+    }
+
+    .scarlett-theme .btn-primary{
+      background:linear-gradient(
+        90deg,
+        var(--scarlett-red),
+        var(--scarlett-babyblue)
+      );
+      color:#111;
+    }
+
+    .beau-theme .card-top{
+      background:linear-gradient(
+        135deg,
+        rgba(57,255,20,.12),
+        rgba(237,100,166,.16)
+      );
+      border-bottom:1px solid #DDF6D6;
+    }
+
+    .beau-theme .tag{
+      background:linear-gradient(
+        90deg,
+        var(--beau-green),
+        var(--beau-pink)
+      );
+      color:#111;
+    }
+
+    .beau-theme .kid-title{
+      color:var(--navy);
+    }
+
+    .beau-theme .btn-primary{
+      background:linear-gradient(
+        90deg,
+        var(--beau-green),
+        var(--beau-pink)
+      );
+      color:#111;
+    }
+
+    .accent-shep{
+      color:var(--shep-orange);
+    }
+
+    .accent-scarlett{
+      color:var(--scarlett-red);
+    }
+
+    .accent-beau{
+      color:#19b300;
+    }
+
+    .accent-navy{
+      color:var(--navy);
+    }
+
     .footer{
       padding:30px 0 44px;
       text-align:center;
@@ -582,71 +644,18 @@
       text-shadow:0 2px 8px rgba(0,0,0,.25);
     }
 
-    .shep-theme .card-top{
-      background:linear-gradient(135deg, rgba(242,140,40,.16), rgba(18,18,18,.08));
-      border-bottom:1px solid #E6C29A;
-    }
-    .shep-theme .tag{
-      background:var(--shep-orange);
-      color:#111;
-    }
-    .shep-theme .kid-title{
-      color:var(--shep-black);
-    }
-    .shep-theme .btn-primary{
-      background:linear-gradient(90deg, var(--shep-orange), #F4A95C);
-      color:#111;
-    }
-
-    .scarlett-theme .card-top{
-      background:linear-gradient(135deg, rgba(201,65,65,.13), rgba(159,208,242,.18), rgba(18,18,18,.04));
-      border-bottom:1px solid #D9E8F5;
-    }
-    .scarlett-theme .tag{
-      background:linear-gradient(90deg, var(--scarlett-red), var(--scarlett-babyblue));
-      color:#111;
-    }
-    .scarlett-theme .kid-title{
-      color:var(--scarlett-black);
-    }
-    .scarlett-theme .btn-primary{
-      background:linear-gradient(90deg, var(--scarlett-red), var(--scarlett-babyblue));
-      color:#111;
-    }
-
-    .beau-theme .card-top{
-      background:linear-gradient(135deg, rgba(57,255,20,.12), rgba(237,100,166,.16));
-      border-bottom:1px solid #DDF6D6;
-    }
-    .beau-theme .tag{
-      background:linear-gradient(90deg, var(--beau-green), var(--beau-pink));
-      color:#111;
-    }
-    .beau-theme .kid-title{
-      color:var(--navy);
-    }
-    .beau-theme .btn-primary{
-      background:linear-gradient(90deg, var(--beau-green), var(--beau-pink));
-      color:#111;
-    }
-
-    .accent-shep{color:var(--shep-orange)}
-    .accent-scarlett{color:var(--scarlett-red)}
-    .accent-beau{color:var(--beau-green)}
-    .accent-navy{color:var(--navy)}
-
     @media (max-width:700px){
       .calendar-grid{
-        grid-template-columns:repeat(7, minmax(44px, 1fr));
+        grid-template-columns:repeat(7,minmax(44px,1fr));
       }
 
       .calendar-day{
-        min-height:90px;
+        min-height:96px;
         padding:6px;
       }
 
       .event-pill{
-        font-size:.68rem;
+        font-size:.64rem;
         padding:5px 6px;
       }
 
@@ -656,40 +665,36 @@
     }
   </style>
 </head>
-<body>
 
-  <div class="sports-border">
-    <img class="ball b1" src="images/baseball.png" alt="">
-    <img class="ball b2" src="images/soccer-ball.png" alt="">
-    <img class="ball b3" src="images/baseball.png" alt="">
-    <img class="ball b4" src="images/soccer-ball.png" alt="">
-    <img class="ball b5" src="images/baseball.png" alt="">
-    <img class="ball b6" src="images/soccer-ball.png" alt="">
-    <img class="ball b7" src="images/baseball.png" alt="">
-    <img class="ball b8" src="images/soccer-ball.png" alt="">
-    <img class="ball b9" src="images/baseball.png" alt="">
-    <img class="ball b10" src="images/soccer-ball.png" alt="">
-  </div>
+<body>
 
   <header class="hero">
     <div class="container">
       <div class="hero-box">
         <div class="hero-overlay">
-          <div class="eyebrow">Family + Sports Hub</div>
-          <h1>The Ivey Family Sports Hub</h1>
+
+          <div class="eyebrow">
+            Family + Sports Hub
+          </div>
+
+          <h1>
+            The Ivey Family Sports Hub
+          </h1>
+
           <p class="hero-subtitle">
-            One place for live games, monthly schedules, maps, media, highlights, and family memories for Shep, Scarlett, and Beau.
+            One place for schedules, games, practices, tournaments,
+            maps, photos, and family sports planning.
           </p>
 
           <div class="quick-nav">
-            <a class="chip" href="#calendar">Monthly Calendar</a>
+            <a class="chip" href="#calendar">Calendar</a>
             <a class="chip" href="#live-hub">Live Hub</a>
             <a class="chip" href="#shep">Shep</a>
             <a class="chip" href="#scarlett">Scarlett</a>
             <a class="chip" href="#beau">Beau</a>
             <a class="chip" href="#family-gallery">Family</a>
-            <a class="chip" href="#resources">Resources</a>
           </div>
+
         </div>
       </div>
     </div>
@@ -698,595 +703,2244 @@
   <main class="container">
 
     <section class="section" id="calendar">
-      <h2 class="section-title">Monthly Calendar</h2>
+
+      <h2 class="section-title">
+        Family Sports Calendar
+      </h2>
+
       <p class="section-subtitle">
-        This combines your full site layout with the working calendar and upcoming-events section you had before.
+        Games, tournaments, and recurring practices in one calendar.
       </p>
 
       <div class="grid">
+
         <article class="card span-8">
+
           <div class="card-body">
+
             <div class="calendar-shell">
+
               <div class="calendar-toolbar">
-                <div>
-                  <h3 id="calendarMonthLabel">Month Year</h3>
-                </div>
+
+                <h3 id="calendarMonthLabel">
+                  Month Year
+                </h3>
+
                 <div class="calendar-nav">
-                  <button class="calendar-btn" id="prevMonthBtn">← Prev</button>
-                  <button class="calendar-btn" id="todayMonthBtn">Today</button>
-                  <button class="calendar-btn" id="nextMonthBtn">Next →</button>
+
+                  <button
+                    class="calendar-btn"
+                    id="prevMonthBtn"
+                  >
+                    ← Prev
+                  </button>
+
+                  <button
+                    class="calendar-btn"
+                    id="todayMonthBtn"
+                  >
+                    Today
+                  </button>
+
+                  <button
+                    class="calendar-btn"
+                    id="nextMonthBtn"
+                  >
+                    Next →
+                  </button>
+
                 </div>
               </div>
-              <div class="calendar-grid" id="calendarDayNames"></div>
-              <div class="calendar-grid" id="calendarDays"></div>
+
+              <div
+                class="calendar-grid"
+                id="calendarDayNames"
+              ></div>
+
+              <div
+                class="calendar-grid"
+                id="calendarDays"
+              ></div>
+
             </div>
           </div>
         </article>
 
         <article class="card span-4">
+
           <div class="card-top">
-            <h3 class="kid-title">Calendar Legend</h3>
-            <p class="team-name">Edit events near the bottom of this file</p>
+
+            <h3 class="kid-title">
+              Family Schedule
+            </h3>
+
+            <p class="team-name">
+              Color-coded by child
+            </p>
+
           </div>
+
           <div class="card-body">
+
             <div class="resource-list">
-              <div class="resource-item"><span class="accent-shep">Shep events</span><span>⚾</span></div>
-              <div class="resource-item"><span class="accent-scarlett">Scarlett events</span><span>⚽</span></div>
-              <div class="resource-item"><span class="accent-beau">Beau events</span><span>🏀</span></div>
-              <div class="resource-item"><span class="accent-navy">Family events</span><span>👨‍👩‍👧‍👦</span></div>
+
+              <div class="resource-item">
+                <span class="accent-shep">Shep</span>
+                <span>⚾🏈</span>
+              </div>
+
+              <div class="resource-item">
+                <span class="accent-scarlett">Scarlett</span>
+                <span>⚽</span>
+              </div>
+
+              <div class="resource-item">
+                <span class="accent-beau">Beau</span>
+                <span>⚾</span>
+              </div>
+
+              <div class="resource-item">
+                <span class="accent-navy">Family</span>
+                <span>👨‍👩‍👧‍👦</span>
+              </div>
+
             </div>
 
-            <div id="nextUp" class="next-up-box"></div>
+            <div
+              id="nextUp"
+              class="next-up-box"
+            ></div>
 
-            <div class="note">
-              Edit the <strong>calendarEvents</strong> list near the bottom to add, remove, or change dates.
+            <div class="overlap-box">
+
+              <strong>
+                Potential Overlaps
+              </strong>
+
+              <div id="overlapList"></div>
+
             </div>
+
           </div>
         </article>
+
       </div>
     </section>
 
-    <section class="section" id="live-hub">
-      <h2 class="section-title">Live Hub</h2>
+    <section
+      class="section"
+      id="live-hub"
+    >
+
+      <h2 class="section-title">
+        Live Hub
+      </h2>
+
       <p class="section-subtitle">
-        Quick phone-friendly shortcuts for live games, score checking, weather, and directions.
+        Quick links for team schedules and live sports information.
       </p>
 
       <div class="grid">
+
         <article class="card span-4 shep-theme">
+
           <div class="card-top">
-            <div class="tag">Shep Live</div>
-            <h3 class="kid-title">Baseball</h3>
-            <p class="team-name">Lobos 12U</p>
-          </div>
-          <div class="card-body">
-            <div class="button-grid">
-              <a class="btn btn-primary" href="PASTE_SHEP_GAMECHANGER_LIVE_LINK_HERE" target="_blank" rel="noopener">Watch / Score</a>
-              <a class="btn btn-secondary" href="PASTE_SHEP_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
+
+            <div class="tag">
+              Shep Live
             </div>
-            <div id="gc-schedule-widget-ms7z" class="gc-widget-box"></div>
+
+            <h3 class="kid-title">
+              Lobos Baseball
+            </h3>
+
+            <p class="team-name">
+              GameChanger schedule
+            </p>
+
+          </div>
+
+          <div class="card-body">
+
+            <div
+              id="gc-schedule-widget-ms7z"
+              class="gc-widget-box"
+            ></div>
+
           </div>
         </article>
 
         <article class="card span-4 scarlett-theme">
+
           <div class="card-top">
-            <div class="tag">Scarlett Live</div>
-            <h3 class="kid-title">Soccer / Basketball</h3>
-            <p class="team-name">Game day links</p>
-          </div>
-          <div class="card-body">
-            <div class="button-grid">
-              <a class="btn btn-primary" href="PASTE_SCARLETT_GAME_DAY_LINK_HERE" target="_blank" rel="noopener">Game Day</a>
-              <a class="btn btn-secondary" href="PASTE_SCARLETT_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
+
+            <div class="tag">
+              Scarlett Live
             </div>
-            <div class="note">Use for AVSA, brackets, standings, tournaments, or livestream links.</div>
+
+            <h3 class="kid-title">
+              Soccer
+            </h3>
+
+            <p class="team-name">
+              PlayMetrics calendars
+            </p>
+
+          </div>
+
+          <div class="card-body">
+
+            <div class="button-grid">
+
+              <a
+                class="btn btn-primary"
+                href="https://calendar.playmetrics.com/calendars/c2584/t558754/p0/tB640F16D/f/calendar.ics"
+                target="_blank"
+                rel="noopener"
+              >
+                Team Calendar 1
+              </a>
+
+              <a
+                class="btn btn-secondary"
+                href="https://calendar.playmetrics.com/calendars/c2584/t557997/p0/tBA662521/f/calendar.ics"
+                target="_blank"
+                rel="noopener"
+              >
+                Team Calendar 2
+              </a>
+
+            </div>
+
+            <div class="note">
+              The page also tries to import both PlayMetrics calendars automatically.
+            </div>
+
           </div>
         </article>
 
         <article class="card span-4 beau-theme">
+
           <div class="card-top">
-            <div class="tag">Beau Live</div>
-            <h3 class="kid-title">Events / Sports</h3>
-            <p class="team-name">Flexible section</p>
-          </div>
-          <div class="card-body">
-            <div class="button-grid">
-              <a class="btn btn-primary" href="PASTE_BEAU_MAIN_LINK_HERE" target="_blank" rel="noopener">Open Link</a>
-              <a class="btn btn-secondary" href="PASTE_BEAU_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
+
+            <div class="tag">
+              Beau Live
             </div>
-            <div class="note">Great for basketball, school events, or whatever comes next.</div>
+
+            <h3 class="kid-title">
+              Dino's 6U Baseball
+            </h3>
+
+            <p class="team-name">
+              Fall 2026 schedule
+            </p>
+
+          </div>
+
+          <div class="card-body">
+
+            <div
+              id="beauUpcoming"
+              class="schedule-list"
+            ></div>
+
           </div>
         </article>
+
       </div>
     </section>
 
-    <section class="section">
-      <h2 class="section-title">Lobo Corner</h2>
-      <p class="section-subtitle">Drop in a stern lobo image to give the site a stronger team feel.</p>
+    <section
+      class="section"
+      id="shep"
+    >
 
-      <div class="lobo-wrap">
-        <div class="lobo-card">
-          <img src="images/lobo-stern.png" alt="Stern lobo">
-          <div class="lobo-caption">Put your stern lobo image in <strong>images/lobo-stern.png</strong>.</div>
-        </div>
+      <h2 class="section-title">
+        Shep
+      </h2>
 
-        <div class="note" style="max-width:500px;">
-          If the file name stays the same, you only drag the image into the <strong>images</strong> folder.
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="shep">
-      <h2 class="section-title">Shep</h2>
-      <p class="section-subtitle">More orange and black, plus baseball-focused shortcuts and photos.</p>
+      <p class="section-subtitle">
+        Lobos baseball, football, practices, tournaments, and photos.
+      </p>
 
       <div class="grid">
+
         <article class="card span-4 shep-theme">
+
           <div class="card-top">
-            <div class="tag">Travel Baseball</div>
-            <h3 class="kid-title">Shep</h3>
-            <p class="team-name">Team: Lobos 12U</p>
+
+            <div class="tag">
+              Shep Schedule
+            </div>
+
+            <h3 class="kid-title">
+              Baseball + Football
+            </h3>
+
+            <p class="team-name">
+              Fall 2026
+            </p>
+
           </div>
+
           <div class="card-body">
-            <p class="desc">Everything for game day, fields, team pages, and highlights.</p>
 
-            <div class="button-grid">
-              <a class="btn btn-primary" href="PASTE_SHEP_GAMECHANGER_LIVE_LINK_HERE" target="_blank" rel="noopener">Live Score</a>
-              <a class="btn btn-secondary" href="PASTE_SHEP_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
-              <a class="btn btn-secondary" href="PASTE_SHEP_TEAM_PAGE_LINK_HERE" target="_blank" rel="noopener">Team Page</a>
-              <a class="btn btn-secondary" href="PASTE_SHEP_PRIMARY_FIELD_LINK_HERE" target="_blank" rel="noopener">Field Map</a>
-            </div>
+            <p class="desc">
+              Football practice Tuesday and Thursday.
+              Baseball practice Wednesday and Friday.
+            </p>
 
-            <div class="stat-list">
-              <div class="stat"><span>Section Colors</span><strong>Orange + Black</strong></div>
-              <div class="stat"><span>Primary App</span><strong>GameChanger</strong></div>
-              <div class="stat"><span>Highlights</span><a href="PASTE_SHEP_HIGHLIGHTS_LINK_HERE" target="_blank" rel="noopener">Open</a></div>
-            </div>
+            <div
+              id="shepUpcoming"
+              class="schedule-list"
+            ></div>
+
           </div>
         </article>
 
         <article class="card span-8 shep-theme">
+
           <div class="card-top">
-            <div class="tag">Photo Gallery</div>
-            <h3 class="kid-title">Shep Photos</h3>
-            <p class="team-name">Built from your pictures</p>
-          </div>
-          <div class="card-body">
-            <div class="button-grid">
-              <a class="btn btn-primary" href="PASTE_SHEP_ONEDRIVE_PHOTOS_FOLDER_HERE" target="_blank" rel="noopener">Open Photos</a>
-              <a class="btn btn-secondary" href="PASTE_SHEP_ONEDRIVE_PHOTOS_UPLOAD_HERE" target="_blank" rel="noopener">Upload Photos</a>
-              <a class="btn btn-secondary" href="PASTE_SHEP_ONEDRIVE_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener">Open Videos</a>
-              <a class="btn btn-secondary" href="PASTE_SHEP_ONEDRIVE_VIDEOS_UPLOAD_HERE" target="_blank" rel="noopener">Upload Videos</a>
+
+            <div class="tag">
+              Photo Gallery
             </div>
+
+            <h3 class="kid-title">
+              Shep Photos
+            </h3>
+
+          </div>
+
+          <div class="card-body">
 
             <div class="gallery">
-              <figure><img src="images/shep-canyon.jpg" alt="Shep canyon"><figcaption>Canyon trip</figcaption></figure>
-              <figure><img src="images/shep-baseball-orange.jpg" alt="Shep Lobos uniform"><figcaption>Lobos uniform</figcaption></figure>
-              <figure><img src="images/shep-ring.jpg" alt="Shep ring"><figcaption>Ring photo</figcaption></figure>
-              <figure><img src="images/shep-basketball-medal.jpg" alt="Shep basketball"><figcaption>Basketball season</figcaption></figure>
-              <figure><img src="images/shep-siblings-medals.jpg" alt="Shep siblings medals"><figcaption>Sibling medal photo</figcaption></figure>
+
+              <figure>
+                <img
+                  src="images/shep-canyon.jpg"
+                  alt="Shep canyon"
+                >
+                <figcaption>
+                  Canyon trip
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/shep-baseball-orange.jpg"
+                  alt="Shep Lobos uniform"
+                >
+                <figcaption>
+                  Lobos uniform
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/shep-ring.jpg"
+                  alt="Shep ring"
+                >
+                <figcaption>
+                  Ring photo
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/shep-basketball-medal.jpg"
+                  alt="Shep basketball"
+                >
+                <figcaption>
+                  Basketball season
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/shep-siblings-medals.jpg"
+                  alt="Shep siblings medals"
+                >
+                <figcaption>
+                  Sibling medal photo
+                </figcaption>
+              </figure>
+
             </div>
 
-            <div class="video-grid">
-              <div class="video-box">
-                <h4>Shep Highlight Clips</h4>
-                <p>Use for at-bats, fielding plays, tournament clips, or saved live games.</p>
-                <a class="btn btn-primary" href="PASTE_SHEP_HIGHLIGHT_VIDEO_LINK_HERE" target="_blank" rel="noopener">Watch Highlight</a>
-              </div>
-              <div class="video-box">
-                <h4>Shep Video Folder</h4>
-                <p>Keep all clips in OneDrive and launch them from here.</p>
-                <a class="btn btn-secondary" href="PASTE_SHEP_ONEDRIVE_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener">Open Video Folder</a>
-              </div>
-            </div>
           </div>
         </article>
+
       </div>
     </section>
 
-    <section class="section" id="scarlett">
-      <h2 class="section-title">Scarlett</h2>
-      <p class="section-subtitle">More red, black, and baby blue with soccer and basketball photos.</p>
+    <section
+      class="section"
+      id="scarlett"
+    >
+
+      <h2 class="section-title">
+        Scarlett
+      </h2>
+
+      <p class="section-subtitle">
+        Soccer, PlayMetrics schedule, practices, and photos.
+      </p>
 
       <div class="grid">
+
         <article class="card span-4 scarlett-theme">
+
           <div class="card-top">
-            <div class="tag">Soccer + Basketball</div>
-            <h3 class="kid-title">Scarlett</h3>
-            <p class="team-name">Game day, standings, and media</p>
+
+            <div class="tag">
+              Scarlett Schedule
+            </div>
+
+            <h3 class="kid-title">
+              Soccer
+            </h3>
+
+            <p class="team-name">
+              Tuesday + Thursday practices
+            </p>
+
           </div>
+
           <div class="card-body">
-            <p class="desc">Schedule, standings, field maps, portraits, and favorite sports photos.</p>
 
-            <div class="button-grid">
-              <a class="btn btn-primary" href="PASTE_SCARLETT_GAME_DAY_LINK_HERE" target="_blank" rel="noopener">Game Day</a>
-              <a class="btn btn-secondary" href="PASTE_SCARLETT_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
-              <a class="btn btn-secondary" href="PASTE_SCARLETT_STANDINGS_LINK_HERE" target="_blank" rel="noopener">Standings</a>
-              <a class="btn btn-secondary" href="PASTE_SCARLETT_PRIMARY_FIELD_LINK_HERE" target="_blank" rel="noopener">Field Map</a>
-            </div>
+            <p class="desc">
+              PlayMetrics events are imported when the browser
+              allows the calendar feed to load.
+            </p>
 
-            <div class="stat-list">
-              <div class="stat"><span>Section Colors</span><strong>Red + Black + Baby Blue</strong></div>
-              <div class="stat"><span>Main Sports</span><strong>Soccer / Basketball</strong></div>
-              <div class="stat"><span>Highlights</span><a href="PASTE_SCARLETT_HIGHLIGHTS_LINK_HERE" target="_blank" rel="noopener">Open</a></div>
-            </div>
+            <div
+              id="scarlettUpcoming"
+              class="schedule-list"
+            ></div>
+
           </div>
         </article>
 
         <article class="card span-8 scarlett-theme">
+
           <div class="card-top">
-            <div class="tag">Photo Gallery</div>
-            <h3 class="kid-title">Scarlett Photos</h3>
-            <p class="team-name">Sports + portraits + family photos</p>
-          </div>
-          <div class="card-body">
-            <div class="button-grid">
-              <a class="btn btn-primary" href="PASTE_SCARLETT_ONEDRIVE_PHOTOS_FOLDER_HERE" target="_blank" rel="noopener">Open Photos</a>
-              <a class="btn btn-secondary" href="PASTE_SCARLETT_ONEDRIVE_PHOTOS_UPLOAD_HERE" target="_blank" rel="noopener">Upload Photos</a>
-              <a class="btn btn-secondary" href="PASTE_SCARLETT_ONEDRIVE_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener">Open Videos</a>
-              <a class="btn btn-secondary" href="PASTE_SCARLETT_ONEDRIVE_VIDEOS_UPLOAD_HERE" target="_blank" rel="noopener">Upload Videos</a>
+
+            <div class="tag">
+              Photo Gallery
             </div>
+
+            <h3 class="kid-title">
+              Scarlett Photos
+            </h3>
+
+          </div>
+
+          <div class="card-body">
 
             <div class="gallery">
-              <figure><img src="images/scarlett-closeup-bow.jpg" alt="Scarlett bow"><figcaption>Close-up smile</figcaption></figure>
-              <figure><img src="images/scarlett-leopard.jpg" alt="Scarlett leopard"><figcaption>Leopard dress</figcaption></figure>
-              <figure><img src="images/scarlett-snow.jpg" alt="Scarlett snow"><figcaption>Snow day</figcaption></figure>
-              <figure><img src="images/scarlett-basketball-team.jpg" alt="Scarlett team"><figcaption>Basketball team</figcaption></figure>
-              <figure><img src="images/scarlett-first-day-school.jpg" alt="Scarlett school"><figcaption>First day of school</figcaption></figure>
-              <figure><img src="images/scarlett-soccer-medal.jpg" alt="Scarlett medal"><figcaption>Soccer medal</figcaption></figure>
-              <figure><img src="images/scarlett-goalpost-full.jpg" alt="Scarlett goalpost"><figcaption>Goalpost portrait</figcaption></figure>
-              <figure><img src="images/scarlett-goalpost-close.jpg" alt="Scarlett goalpost close"><figcaption>Goalpost close-up</figcaption></figure>
-              <figure><img src="images/scarlett-yellow-shirt.jpg" alt="Scarlett yellow shirt"><figcaption>Yellow jersey smile</figcaption></figure>
-              <figure><img src="images/scarlett-basketball-uniform.jpg" alt="Scarlett basketball uniform"><figcaption>Basketball uniform</figcaption></figure>
+
+              <figure>
+                <img
+                  src="images/scarlett-closeup-bow.jpg"
+                  alt="Scarlett bow"
+                >
+                <figcaption>
+                  Close-up smile
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/scarlett-leopard.jpg"
+                  alt="Scarlett leopard"
+                >
+                <figcaption>
+                  Leopard dress
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/scarlett-snow.jpg"
+                  alt="Scarlett snow"
+                >
+                <figcaption>
+                  Snow day
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/scarlett-basketball-team.jpg"
+                  alt="Scarlett team"
+                >
+                <figcaption>
+                  Basketball team
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/scarlett-first-day-school.jpg"
+                  alt="Scarlett school"
+                >
+                <figcaption>
+                  First day of school
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/scarlett-soccer-medal.jpg"
+                  alt="Scarlett medal"
+                >
+                <figcaption>
+                  Soccer medal
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/scarlett-goalpost-full.jpg"
+                  alt="Scarlett goalpost"
+                >
+                <figcaption>
+                  Goalpost portrait
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/scarlett-goalpost-close.jpg"
+                  alt="Scarlett goalpost close"
+                >
+                <figcaption>
+                  Goalpost close-up
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/scarlett-yellow-shirt.jpg"
+                  alt="Scarlett yellow shirt"
+                >
+                <figcaption>
+                  Yellow jersey smile
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/scarlett-basketball-uniform.jpg"
+                  alt="Scarlett basketball uniform"
+                >
+                <figcaption>
+                  Basketball uniform
+                </figcaption>
+              </figure>
+
             </div>
 
-            <div class="video-grid">
-              <div class="video-box">
-                <h4>Scarlett Highlight Clips</h4>
-                <p>Use for goals, tournament clips, or favorite basketball moments.</p>
-                <a class="btn btn-primary" href="PASTE_SCARLETT_HIGHLIGHT_VIDEO_LINK_HERE" target="_blank" rel="noopener">Watch Highlight</a>
-              </div>
-              <div class="video-box">
-                <h4>Scarlett Video Folder</h4>
-                <p>Keep all video links in your OneDrive folder.</p>
-                <a class="btn btn-secondary" href="PASTE_SCARLETT_ONEDRIVE_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener">Open Video Folder</a>
-              </div>
-            </div>
           </div>
         </article>
+
       </div>
     </section>
 
-    <section class="section" id="beau">
-      <h2 class="section-title">Beau</h2>
-      <p class="section-subtitle">Neon green and pink with Beau’s basketball and family photos.</p>
+    <section
+      class="section"
+      id="beau"
+    >
+
+      <h2 class="section-title">
+        Beau
+      </h2>
+
+      <p class="section-subtitle">
+        Dino's 6U baseball schedule and photos.
+      </p>
 
       <div class="grid">
+
         <article class="card span-4 beau-theme">
+
           <div class="card-top">
-            <div class="tag">Beau Zone</div>
-            <h3 class="kid-title">Beau</h3>
-            <p class="team-name">Basketball / Family / Events</p>
+
+            <div class="tag">
+              Beau Schedule
+            </div>
+
+            <h3 class="kid-title">
+              Baseball
+            </h3>
+
+            <p class="team-name">
+              Fall 2026
+            </p>
+
           </div>
+
           <div class="card-body">
-            <p class="desc">A flexible section for photos, videos, events, and future sports links.</p>
 
-            <div class="button-grid">
-              <a class="btn btn-primary" href="PASTE_BEAU_MAIN_LINK_HERE" target="_blank" rel="noopener">Main Link</a>
-              <a class="btn btn-secondary" href="PASTE_BEAU_SCHEDULE_LINK_HERE" target="_blank" rel="noopener">Schedule</a>
-              <a class="btn btn-secondary" href="PASTE_BEAU_PRIMARY_LOCATION_LINK_HERE" target="_blank" rel="noopener">Map</a>
-              <a class="btn btn-secondary" href="PASTE_BEAU_TEAM_OR_STATS_LINK_HERE" target="_blank" rel="noopener">Team / Stats</a>
-            </div>
+            <div
+              id="beauFullSchedule"
+              class="schedule-list"
+            ></div>
 
-            <div class="stat-list">
-              <div class="stat"><span>Section Colors</span><strong>Neon Green + Pink</strong></div>
-              <div class="stat"><span>Main Focus</span><strong>Basketball / Family</strong></div>
-              <div class="stat"><span>Highlights</span><a href="PASTE_BEAU_HIGHLIGHTS_LINK_HERE" target="_blank" rel="noopener">Open</a></div>
-            </div>
           </div>
         </article>
 
         <article class="card span-8 beau-theme">
+
           <div class="card-top">
-            <div class="tag">Photo Gallery</div>
-            <h3 class="kid-title">Beau Photos</h3>
-            <p class="team-name">Favorite Beau pictures you shared</p>
-          </div>
-          <div class="card-body">
-            <div class="button-grid">
-              <a class="btn btn-primary" href="PASTE_BEAU_ONEDRIVE_PHOTOS_FOLDER_HERE" target="_blank" rel="noopener">Open Photos</a>
-              <a class="btn btn-secondary" href="PASTE_BEAU_ONEDRIVE_PHOTOS_UPLOAD_HERE" target="_blank" rel="noopener">Upload Photos</a>
-              <a class="btn btn-secondary" href="PASTE_BEAU_ONEDRIVE_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener">Open Videos</a>
-              <a class="btn btn-secondary" href="PASTE_BEAU_ONEDRIVE_VIDEOS_UPLOAD_HERE" target="_blank" rel="noopener">Upload Videos</a>
+
+            <div class="tag">
+              Photo Gallery
             </div>
+
+            <h3 class="kid-title">
+              Beau Photos
+            </h3>
+
+          </div>
+
+          <div class="card-body">
 
             <div class="gallery">
-              <figure><img src="images/beau-project.jpg" alt="Beau project"><figcaption>School project</figcaption></figure>
-              <figure><img src="images/beau-canyon.jpg" alt="Beau canyon"><figcaption>Canyon trip</figcaption></figure>
-              <figure><img src="images/beau-basketball-portrait.jpg" alt="Beau basketball portrait"><figcaption>Basketball portrait</figcaption></figure>
-              <figure><img src="images/beau-peace-sign.jpg" alt="Beau peace sign"><figcaption>Peace sign</figcaption></figure>
-              <figure><img src="images/beau-birthday-blue.jpg" alt="Beau birthday"><figcaption>Birthday smile</figcaption></figure>
-              <figure><img src="images/beau-siblings-medals.jpg" alt="Beau with siblings"><figcaption>Sibling medal photo</figcaption></figure>
+
+              <figure>
+                <img
+                  src="images/beau-project.jpg"
+                  alt="Beau project"
+                >
+                <figcaption>
+                  School project
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/beau-canyon.jpg"
+                  alt="Beau canyon"
+                >
+                <figcaption>
+                  Canyon trip
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/beau-basketball-portrait.jpg"
+                  alt="Beau basketball portrait"
+                >
+                <figcaption>
+                  Basketball portrait
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/beau-peace-sign.jpg"
+                  alt="Beau peace sign"
+                >
+                <figcaption>
+                  Peace sign
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/beau-birthday-blue.jpg"
+                  alt="Beau birthday"
+                >
+                <figcaption>
+                  Birthday smile
+                </figcaption>
+              </figure>
+
+              <figure>
+                <img
+                  src="images/beau-siblings-medals.jpg"
+                  alt="Beau with siblings"
+                >
+                <figcaption>
+                  Sibling medal photo
+                </figcaption>
+              </figure>
+
             </div>
 
-            <div class="video-grid">
-              <div class="video-box">
-                <h4>Beau Highlight Clips</h4>
-                <p>Use for basketball clips, school performances, or family favorites.</p>
-                <a class="btn btn-primary" href="PASTE_BEAU_HIGHLIGHT_VIDEO_LINK_HERE" target="_blank" rel="noopener">Watch Highlight</a>
-              </div>
-              <div class="video-box">
-                <h4>Beau Video Folder</h4>
-                <p>Launch all Beau videos from your OneDrive folder.</p>
-                <a class="btn btn-secondary" href="PASTE_BEAU_ONEDRIVE_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener">Open Video Folder</a>
-              </div>
-            </div>
           </div>
         </article>
+
       </div>
     </section>
 
-    <section class="section" id="family-gallery">
-      <h2 class="section-title">Family Gallery</h2>
-      <p class="section-subtitle">A few favorites right on the main page.</p>
+    <section
+      class="section"
+      id="family-gallery"
+    >
+
+      <h2 class="section-title">
+        Family Gallery
+      </h2>
+
+      <p class="section-subtitle">
+        A few favorites on the main page.
+      </p>
 
       <div class="family-grid">
-        <div class="family-card">
-          <img src="images/family-canyon.jpg" alt="Family canyon photo">
-          <div>Family canyon photo</div>
-        </div>
-        <div class="family-card">
-          <img src="images/kids-canyon.jpg" alt="Kids canyon photo">
-          <div>Kids canyon photo</div>
-        </div>
-        <div class="family-card">
-          <img src="images/siblings-medals.jpg" alt="Sibling medals">
-          <div>Sibling medals</div>
-        </div>
-      </div>
-    </section>
 
-    <section class="section" id="resources">
-      <h2 class="section-title">Maps & Resources</h2>
-      <p class="section-subtitle">Field links, weather, folders, and family extras.</p>
+        <div class="family-card">
 
-      <div class="grid">
-        <article class="card span-6">
-          <div class="card-top">
-            <h3 class="kid-title">Field Maps</h3>
-            <p class="team-name">Add your most-used locations here.</p>
-          </div>
-          <div class="card-body">
-            <div class="resource-list">
-              <a class="resource-item" href="PASTE_SHEP_PRIMARY_FIELD_LINK_HERE" target="_blank" rel="noopener"><span>Shep Primary Field</span><span>📍</span></a>
-              <a class="resource-item" href="PASTE_SCARLETT_PRIMARY_FIELD_LINK_HERE" target="_blank" rel="noopener"><span>Scarlett Primary Field</span><span>📍</span></a>
-              <a class="resource-item" href="PASTE_BEAU_PRIMARY_LOCATION_LINK_HERE" target="_blank" rel="noopener"><span>Beau Primary Location</span><span>📍</span></a>
-              <a class="resource-item" href="PASTE_TOURNAMENT_COMPLEX_LINK_HERE" target="_blank" rel="noopener"><span>Tournament Complex</span><span>📍</span></a>
-            </div>
-          </div>
-        </article>
+          <img
+            src="images/family-canyon.jpg"
+            alt="Family canyon photo"
+          >
 
-        <article class="card span-6">
-          <div class="card-top">
-            <h3 class="kid-title">OneDrive & Extras</h3>
-            <p class="team-name">Folders and family shortcuts</p>
+          <div>
+            Family canyon photo
           </div>
-          <div class="card-body">
-            <div class="resource-list">
-              <a class="resource-item" href="PASTE_MASTER_FAMILY_PHOTOS_FOLDER_HERE" target="_blank" rel="noopener"><span>Family Photos Folder</span><span>📸</span></a>
-              <a class="resource-item" href="PASTE_MASTER_FAMILY_VIDEOS_FOLDER_HERE" target="_blank" rel="noopener"><span>Family Videos Folder</span><span>🎥</span></a>
-              <a class="resource-item" href="PASTE_WEATHER_RADAR_LINK_HERE" target="_blank" rel="noopener"><span>Weather / Radar</span><span>☁️</span></a>
-              <a class="resource-item" href="PASTE_PARENT_GROUP_CHAT_LINK_HERE" target="_blank" rel="noopener"><span>Parent Group Chat</span><span>💬</span></a>
-            </div>
+
+        </div>
+
+        <div class="family-card">
+
+          <img
+            src="images/kids-canyon.jpg"
+            alt="Kids canyon photo"
+          >
+
+          <div>
+            Kids canyon photo
           </div>
-        </article>
+
+        </div>
+
+        <div class="family-card">
+
+          <img
+            src="images/siblings-medals.jpg"
+            alt="Sibling medals"
+          >
+
+          <div>
+            Sibling medals
+          </div>
+
+        </div>
+
       </div>
     </section>
 
   </main>
 
   <footer class="footer">
-    Built for the Ivey family. Update links anytime, and drag new media into your folders as the seasons roll on.
+    Ivey Family Sports Hub • Fall 2026
   </footer>
 
   <script src="https://widgets.gc.com/static/js/sdk.v1.js"></script>
+
   <script>
-    if (window.GC && window.GC.team && window.GC.team.schedule) {
+    if(
+      window.GC &&
+      window.GC.team &&
+      window.GC.team.schedule
+    ){
       window.GC.team.schedule.init({
-        target: "#gc-schedule-widget-ms7z",
-        widgetId: "a9d47127-73de-4059-89a0-c22ef0c7b217",
-        maxVerticalGamesVisible: 4
+        target:"#gc-schedule-widget-ms7z",
+        widgetId:"a9d47127-73de-4059-89a0-c22ef0c7b217",
+        maxVerticalGamesVisible:4
       });
     }
   </script>
 
   <script>
-    const calendarDayNames = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
 
-    const calendarEvents = [
-      {date:"2026-03-13",title:"Lobos Tournament - Conway",type:"shep"},
-      {date:"2026-03-14",title:"Lobos Tournament - Conway",type:"shep"},
-      {date:"2026-03-15",title:"Bracket Game 8AM - Conway",type:"shep"},
-
-      {date:"2026-03-16",title:"Braves Practice 6:15",type:"beau"},
-      {date:"2026-03-20",title:"Family 3v3 Practice",type:"family"},
-      {date:"2026-03-21",title:"Braves Practice 1PM",type:"beau"},
-      {date:"2026-03-27",title:"Family 3v3 Practice",type:"family"},
-      {date:"2026-03-28",title:"Braves Practice 1PM",type:"beau"},
-
-      {date:"2026-04-04",title:"Scarlett vs Robinson",type:"scarlett"},
-      {date:"2026-04-06",title:"Braves vs Cubs",type:"beau"},
-      {date:"2026-04-09",title:"Orioles vs Braves",type:"beau"},
-      {date:"2026-04-11",title:"Scarlett vs Collins",type:"scarlett"},
-      {date:"2026-04-20",title:"Braves vs Orioles",type:"beau"},
-
-      {date:"2026-05-02",title:"Scarlett vs Brown",type:"scarlett"},
-      {date:"2026-05-04",title:"Pirates vs Braves",type:"beau"},
-      {date:"2026-05-07",title:"Braves vs Orioles",type:"beau"},
-      {date:"2026-05-09",title:"Scarlett vs Rogers",type:"scarlett"},
-      {date:"2026-05-11",title:"Braves vs Cubs",type:"beau"},
-      {date:"2026-05-14",title:"Orioles vs Braves",type:"beau"}
+    const calendarDayNames = [
+      "Sun",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
     ];
 
-    const monthLabelEl = document.getElementById("calendarMonthLabel");
-    const dayNamesEl = document.getElementById("calendarDayNames");
-    const daysEl = document.getElementById("calendarDays");
-    const prevBtn = document.getElementById("prevMonthBtn");
-    const nextBtn = document.getElementById("nextMonthBtn");
-    const todayBtn = document.getElementById("todayMonthBtn");
-    const nextUpEl = document.getElementById("nextUp");
+    const playMetricsFeeds = [
 
-    const today = new Date();
-    let currentYear = today.getFullYear();
-    let currentMonth = today.getMonth();
+      {
+        child:"Scarlett",
+        type:"scarlett",
+        sport:"Soccer",
+        url:"https://calendar.playmetrics.com/calendars/c2584/t558754/p0/tB640F16D/f/calendar.ics"
+      },
+
+      {
+        child:"Scarlett",
+        type:"scarlett",
+        sport:"Soccer",
+        url:"https://calendar.playmetrics.com/calendars/c2584/t557997/p0/tBA662521/f/calendar.ics"
+      }
+
+    ];
+
+    const calendarEvents = [
+
+      /*
+      ===========================
+      BEAU BASEBALL
+      ===========================
+      */
+
+      {
+        date:"2026-09-10",
+        time:"6:00 PM",
+        title:"Beau Baseball @ Pottsville Royals",
+        type:"beau",
+        child:"Beau",
+        sport:"Baseball",
+        location:"Dino's 6U Baseball"
+      },
+
+      {
+        date:"2026-09-11",
+        time:"6:00 PM",
+        title:"Beau Baseball vs Bad Company",
+        type:"beau",
+        child:"Beau",
+        sport:"Baseball",
+        location:"Dino's 6U Baseball"
+      },
+
+      {
+        date:"2026-09-14",
+        time:"6:00 PM",
+        title:"Beau Baseball vs Strikers",
+        type:"beau",
+        child:"Beau",
+        sport:"Baseball",
+        location:"Dino's 6U Baseball"
+      },
+
+      {
+        date:"2026-09-17",
+        time:"6:00 PM",
+        title:"Beau Baseball vs Mud Puppies",
+        type:"beau",
+        child:"Beau",
+        sport:"Baseball",
+        location:"Dino's 6U Baseball"
+      },
+
+      {
+        date:"2026-09-22",
+        time:"5:00 PM",
+        title:"Beau Baseball vs TRY Gators",
+        type:"beau",
+        child:"Beau",
+        sport:"Baseball",
+        location:"Dino's 6U Baseball"
+      },
+
+      {
+        date:"2026-09-24",
+        time:"6:00 PM",
+        title:"Beau Baseball @ Diamond Dogs",
+        type:"beau",
+        child:"Beau",
+        sport:"Baseball",
+        location:"Dino's 6U Baseball"
+      },
+
+      {
+        date:"2026-09-25",
+        time:"6:00 PM",
+        title:"Beau Baseball vs Pottsville Royals",
+        type:"beau",
+        child:"Beau",
+        sport:"Baseball",
+        location:"Dino's 6U Baseball"
+      },
+
+      {
+        date:"2026-09-29",
+        time:"5:00 PM",
+        title:"Beau Baseball @ Bad Company",
+        type:"beau",
+        child:"Beau",
+        sport:"Baseball",
+        location:"Dino's 6U Baseball"
+      },
+
+      {
+        date:"2026-10-01",
+        time:"6:00 PM",
+        title:"Beau Baseball @ Mud Puppies",
+        type:"beau",
+        child:"Beau",
+        sport:"Baseball",
+        location:"Dino's 6U Baseball"
+      },
+
+      {
+        date:"2026-10-05",
+        time:"5:00 PM",
+        title:"Beau Baseball vs Strikers",
+        type:"beau",
+        child:"Beau",
+        sport:"Baseball",
+        location:"Dino's 6U Baseball"
+      },
+
+      /*
+      ===========================
+      SHEP LOBOS TOURNAMENTS
+      ===========================
+      */
+
+      {
+        date:"2026-09-13",
+        time:"TBD",
+        title:"Lobos - CTS Legends of the Diamond",
+        type:"shep",
+        child:"Shep",
+        sport:"Baseball Tournament",
+        location:"Hot Springs, AR"
+      },
+
+      {
+        date:"2026-09-20",
+        time:"TBD",
+        title:"Lobos - Arkansas Fall Hogville Showcase",
+        type:"shep",
+        child:"Shep",
+        sport:"Baseball Tournament",
+        location:"Bentonville / Springdale / Fayetteville, AR"
+      },
+
+      {
+        date:"2026-10-04",
+        time:"TBD",
+        title:"Lobos - 7th Annual Homie With an Extra Chromie",
+        type:"shep",
+        child:"Shep",
+        sport:"Baseball Tournament",
+        location:"Conway, AR"
+      },
+
+      /*
+      ===========================
+      SHEP FOOTBALL
+      ===========================
+
+      B Games = 5 PM
+      A Games = 7 PM
+      Arrive 1 hour early
+
+      */
+
+      {
+        date:"2026-08-22",
+        time:"5:00 / 7:00 PM",
+        title:"Shep Football - Clarksville Jamboree",
+        type:"shep",
+        child:"Shep",
+        sport:"Football",
+        location:"Clarksville Jamboree"
+      },
+
+      {
+        date:"2026-08-29",
+        time:"5:00 / 7:00 PM",
+        title:"Shep Football - Clarksville",
+        type:"shep",
+        child:"Shep",
+        sport:"Football",
+        location:"Clarksville"
+      },
+
+      {
+        date:"2026-09-05",
+        time:"5:00 / 7:00 PM",
+        title:"Shep Football vs Booneville",
+        type:"shep",
+        child:"Shep",
+        sport:"Football",
+        location:"Clarksville"
+      },
+
+      {
+        date:"2026-09-12",
+        time:"5:00 / 7:00 PM",
+        title:"Shep Football @ Waldron",
+        type:"shep",
+        child:"Shep",
+        sport:"Football",
+        location:"Waldron"
+      },
+
+      {
+        date:"2026-09-19",
+        time:"5:00 / 7:00 PM",
+        title:"Shep Football vs Charleston",
+        type:"shep",
+        child:"Shep",
+        sport:"Football",
+        location:"Clarksville"
+      },
+
+      {
+        date:"2026-09-26",
+        time:"5:00 / 7:00 PM",
+        title:"Shep Football vs Mena",
+        type:"shep",
+        child:"Shep",
+        sport:"Football",
+        location:"Clarksville"
+      },
+
+      {
+        date:"2026-10-03",
+        time:"5:00 / 7:00 PM",
+        title:"Shep Football @ Ozark",
+        type:"shep",
+        child:"Shep",
+        sport:"Football",
+        location:"Ozark"
+      },
+
+      {
+        date:"2026-10-10",
+        time:"5:00 / 7:00 PM",
+        title:"Shep Football @ Booneville",
+        type:"shep",
+        child:"Shep",
+        sport:"Football",
+        location:"Booneville"
+      },
+
+      {
+        date:"2026-10-17",
+        time:"5:00 / 7:00 PM",
+        title:"Shep Football vs Waldron",
+        type:"shep",
+        child:"Shep",
+        sport:"Football",
+        location:"Clarksville"
+      },
+
+      {
+        date:"2026-10-24",
+        time:"5:00 / 7:00 PM",
+        title:"Shep Football @ Charleston",
+        type:"shep",
+        child:"Shep",
+        sport:"Football",
+        location:"Charleston"
+      },
+
+      {
+        date:"2026-10-31",
+        time:"5:00 / 7:00 PM",
+        title:"Shep Football @ Mena",
+        type:"shep",
+        child:"Shep",
+        sport:"Football",
+        location:"Mena"
+      }
+
+    ];
 
     function pad(n){
-      return String(n).padStart(2, "0");
+      return String(n).padStart(2,"0");
     }
 
-    function formatDateKey(year, month, day){
-      return `${year}-${pad(month + 1)}-${pad(day)}`;
+    function formatDateKey(
+      year,
+      month,
+      day
+    ){
+      return `${year}-${pad(month+1)}-${pad(day)}`;
     }
 
-    function getEventsForDate(dateKey){
-      return calendarEvents.filter(ev => ev.date === dateKey);
+    function addRecurringPractice({
+      start,
+      end,
+      weekdays,
+      title,
+      type,
+      child,
+      sport,
+      location="TBD",
+      time="TBD"
+    }){
+
+      const startDate =
+        new Date(start + "T12:00:00");
+
+      const endDate =
+        new Date(end + "T12:00:00");
+
+      for(
+        let d = new Date(startDate);
+        d <= endDate;
+        d.setDate(d.getDate()+1)
+      ){
+
+        if(
+          weekdays.includes(d.getDay())
+        ){
+
+          const dateKey =
+            formatDateKey(
+              d.getFullYear(),
+              d.getMonth(),
+              d.getDate()
+            );
+
+          calendarEvents.push({
+
+            date:dateKey,
+            time,
+            title,
+            type,
+            child,
+            sport,
+            location,
+            isPractice:true
+
+          });
+
+        }
+
+      }
+
+    }
+
+    /*
+    ===========================
+    RECURRING PRACTICES
+    ===========================
+    */
+
+    addRecurringPractice({
+
+      start:"2026-09-10",
+      end:"2026-10-31",
+
+      weekdays:[
+        2,
+        4
+      ],
+
+      title:"Shep Football Practice",
+
+      type:"shep",
+      child:"Shep",
+
+      sport:"Football Practice"
+
+    });
+
+    addRecurringPractice({
+
+      start:"2026-09-10",
+      end:"2026-10-31",
+
+      weekdays:[
+        3,
+        5
+      ],
+
+      title:"Shep Baseball Practice",
+
+      type:"shep",
+      child:"Shep",
+
+      sport:"Baseball Practice"
+
+    });
+
+    addRecurringPractice({
+
+      start:"2026-09-10",
+      end:"2026-10-31",
+
+      weekdays:[
+        2,
+        4
+      ],
+
+      title:"Scarlett Soccer Practice",
+
+      type:"scarlett",
+      child:"Scarlett",
+
+      sport:"Soccer Practice"
+
+    });
+
+    /*
+    ===========================
+    PLAYMETRICS IMPORT
+    ===========================
+    */
+
+    function unfoldIcs(text){
+
+      return text.replace(
+        /\r?\n[ \t]/g,
+        ""
+      );
+
+    }
+
+    function unescapeIcs(value=""){
+
+      return value
+
+        .replace(
+          /\\n/gi,
+          " "
+        )
+
+        .replace(
+          /\\,/g,
+          ","
+        )
+
+        .replace(
+          /\\;/g,
+          ";"
+        )
+
+        .replace(
+          /\\\\/g,
+          "\\"
+        );
+
+    }
+
+    function parseIcsDate(value){
+
+      const match =
+        value
+          .trim()
+          .match(
+            /^(\d{4})(\d{2})(\d{2})(?:T(\d{2})(\d{2})(\d{2})?Z?)?/
+          );
+
+      if(!match){
+        return null;
+      }
+
+      return {
+
+        date:
+          `${match[1]}-${match[2]}-${match[3]}`,
+
+        time:
+          match[4]
+            ? `${match[4]}:${match[5]}`
+            : ""
+
+      };
+
+    }
+
+    function parseIcs(
+      text,
+      feed
+    ){
+
+      const unfolded =
+        unfoldIcs(text);
+
+      const blocks =
+        unfolded
+          .split("BEGIN:VEVENT")
+          .slice(1);
+
+      return blocks
+
+        .map(block => {
+
+          const body =
+            block
+              .split("END:VEVENT")[0];
+
+          const dtMatch =
+            body.match(
+              /\nDTSTART(?:;[^:]*)?:(.+)/
+            );
+
+          const summaryMatch =
+            body.match(
+              /\nSUMMARY(?:;[^:]*)?:(.+)/
+            );
+
+          const locationMatch =
+            body.match(
+              /\nLOCATION(?:;[^:]*)?:(.+)/
+            );
+
+          if(
+            !dtMatch ||
+            !summaryMatch
+          ){
+            return null;
+          }
+
+          const parts =
+            parseIcsDate(
+              dtMatch[1]
+            );
+
+          if(!parts){
+            return null;
+          }
+
+          const summary =
+            unescapeIcs(
+              summaryMatch[1].trim()
+            );
+
+          const location =
+            locationMatch
+              ? unescapeIcs(
+                  locationMatch[1].trim()
+                )
+              : "See PlayMetrics";
+
+          return {
+
+            date:parts.date,
+
+            time:parts.time,
+
+            title:
+              `Scarlett Soccer - ${summary}`,
+
+            type:feed.type,
+
+            child:feed.child,
+
+            sport:feed.sport,
+
+            location,
+
+            fromPlayMetrics:true
+
+          };
+
+        })
+
+        .filter(Boolean);
+
+    }
+
+    async function loadPlayMetricsEvents(){
+
+      for(
+        const feed of playMetricsFeeds
+      ){
+
+        try{
+
+          const response =
+            await fetch(
+              feed.url,
+              {
+                cache:"no-store"
+              }
+            );
+
+          if(!response.ok){
+
+            throw new Error(
+              `HTTP ${response.status}`
+            );
+
+          }
+
+          const text =
+            await response.text();
+
+          const imported =
+            parseIcs(
+              text,
+              feed
+            );
+
+          imported.forEach(ev => {
+
+            const duplicate =
+              calendarEvents.some(
+                existing =>
+                  existing.date === ev.date &&
+                  existing.title === ev.title
+              );
+
+            if(!duplicate){
+
+              calendarEvents.push(ev);
+
+            }
+
+          });
+
+        }catch(error){
+
+          console.warn(
+            "PlayMetrics feed could not be loaded:",
+            feed.url,
+            error
+          );
+
+        }
+
+      }
+
+      refreshAllViews();
+
+    }
+
+    /*
+    ===========================
+    CALENDAR ELEMENTS
+    ===========================
+    */
+
+    const monthLabelEl =
+      document.getElementById(
+        "calendarMonthLabel"
+      );
+
+    const dayNamesEl =
+      document.getElementById(
+        "calendarDayNames"
+      );
+
+    const daysEl =
+      document.getElementById(
+        "calendarDays"
+      );
+
+    const prevBtn =
+      document.getElementById(
+        "prevMonthBtn"
+      );
+
+    const nextBtn =
+      document.getElementById(
+        "nextMonthBtn"
+      );
+
+    const todayBtn =
+      document.getElementById(
+        "todayMonthBtn"
+      );
+
+    const nextUpEl =
+      document.getElementById(
+        "nextUp"
+      );
+
+    const overlapListEl =
+      document.getElementById(
+        "overlapList"
+      );
+
+    const today =
+      new Date();
+
+    let currentYear =
+      today.getFullYear();
+
+    let currentMonth =
+      today.getMonth();
+
+    function getEventsForDate(
+      dateKey
+    ){
+
+      return calendarEvents
+
+        .filter(
+          ev =>
+            ev.date === dateKey
+        )
+
+        .sort(
+          (a,b) =>
+            (a.time || "")
+              .localeCompare(
+                b.time || ""
+              )
+        );
+
+    }
+
+    function prettyDate(
+      dateKey
+    ){
+
+      const [
+        year,
+        month,
+        day
+      ] =
+        dateKey
+          .split("-")
+          .map(Number);
+
+      return new Date(
+        year,
+        month-1,
+        day
+      ).toLocaleDateString(
+        "en-US",
+        {
+          weekday:"short",
+          month:"short",
+          day:"numeric"
+        }
+      );
+
     }
 
     function renderDayNames(){
+
       dayNamesEl.innerHTML = "";
-      calendarDayNames.forEach(name => {
-        const cell = document.createElement("div");
-        cell.className = "calendar-dow";
-        cell.textContent = name;
-        dayNamesEl.appendChild(cell);
-      });
+
+      calendarDayNames.forEach(
+        name => {
+
+          const cell =
+            document.createElement(
+              "div"
+            );
+
+          cell.className =
+            "calendar-dow";
+
+          cell.textContent =
+            name;
+
+          dayNamesEl.appendChild(
+            cell
+          );
+
+        }
+      );
+
     }
 
     function renderNextUp(){
-      const todayKey = formatDateKey(
-        today.getFullYear(),
-        today.getMonth(),
-        today.getDate()
-      );
 
-      const upcoming = calendarEvents
-        .filter(e => e.date >= todayKey)
-        .sort((a,b) => a.date.localeCompare(b.date))[0];
+      const todayKey =
+        formatDateKey(
+          today.getFullYear(),
+          today.getMonth(),
+          today.getDate()
+        );
+
+      const upcoming =
+        calendarEvents
+
+          .filter(
+            event =>
+              event.date >= todayKey
+          )
+
+          .sort(
+            (a,b) => {
+
+              const dateCompare =
+                a.date.localeCompare(
+                  b.date
+                );
+
+              if(
+                dateCompare !== 0
+              ){
+                return dateCompare;
+              }
+
+              return (
+                a.time || ""
+              ).localeCompare(
+                b.time || ""
+              );
+
+            }
+          )[0];
 
       if(!upcoming){
+
         nextUpEl.innerHTML = `
-          <strong>Next Up</strong>
-          <div>No upcoming events in the current list yet.</div>
+          <strong>
+            Next Up
+          </strong>
+
+          <div>
+            No upcoming events.
+          </div>
         `;
+
         return;
+
       }
 
       nextUpEl.innerHTML = `
-        <strong>Next Up</strong>
-        <div>${upcoming.title}</div>
-        <div style="margin-top:6px;color:#61758E;font-size:.92rem;">${upcoming.date}</div>
+
+        <strong>
+          Next Up
+        </strong>
+
+        <div>
+          ${upcoming.title}
+        </div>
+
+        <div
+          style="
+            margin-top:6px;
+            color:#61758E;
+            font-size:.92rem;
+          "
+        >
+
+          ${prettyDate(
+            upcoming.date
+          )}
+
+          ${
+            upcoming.time
+              ? " • " + upcoming.time
+              : ""
+          }
+
+          ${
+            upcoming.location
+              ? " • " + upcoming.location
+              : ""
+          }
+
+        </div>
+
       `;
+
     }
 
-    function renderCalendar(year, month){
-      const firstDay = new Date(year, month, 1);
-      const startWeekday = firstDay.getDay();
-      const daysInMonth = new Date(year, month + 1, 0).getDate();
-      const prevMonthDays = new Date(year, month, 0).getDate();
+    function renderOverlaps(){
 
-      const monthName = firstDay.toLocaleString("en-US", { month: "long", year: "numeric" });
-      monthLabelEl.textContent = monthName;
+      const todayKey =
+        formatDateKey(
+          today.getFullYear(),
+          today.getMonth(),
+          today.getDate()
+        );
+
+      const byDate = {};
+
+      calendarEvents
+
+        .filter(
+          event =>
+            event.date >= todayKey
+        )
+
+        .forEach(
+          event => {
+
+            if(
+              !byDate[event.date]
+            ){
+
+              byDate[event.date] = [];
+
+            }
+
+            byDate[event.date]
+              .push(event);
+
+          }
+        );
+
+      const overlaps =
+        Object.entries(byDate)
+
+          .filter(
+            ([date,events]) => {
+
+              const children =
+                new Set(
+                  events.map(
+                    event =>
+                      event.child
+                  )
+                );
+
+              return (
+                children.size > 1
+              );
+
+            }
+          )
+
+          .sort(
+            (a,b) =>
+              a[0].localeCompare(
+                b[0]
+              )
+          )
+
+          .slice(
+            0,
+            8
+          );
+
+      if(
+        !overlaps.length
+      ){
+
+        overlapListEl.innerHTML =
+          `
+            <div>
+              No multi-child dates found.
+            </div>
+          `;
+
+        return;
+
+      }
+
+      overlapListEl.innerHTML =
+        overlaps
+
+          .map(
+            ([date,events]) => {
+
+              const summary =
+                events
+
+                  .map(
+                    event =>
+                      `${event.child}: ${event.sport}${
+                        event.time &&
+                        event.time !== "TBD"
+                          ? " " + event.time
+                          : ""
+                      }`
+                  )
+
+                  .join("<br>");
+
+              return `
+
+                <div class="overlap-item">
+
+                  <strong>
+                    ${prettyDate(date)}
+                  </strong>
+
+                  <div>
+                    ${summary}
+                  </div>
+
+                </div>
+
+              `;
+
+            }
+          )
+
+          .join("");
+
+    }
+
+    function renderScheduleList(
+      targetId,
+      child,
+      maxItems=8,
+      includePast=false
+    ){
+
+      const target =
+        document.getElementById(
+          targetId
+        );
+
+      if(!target){
+        return;
+      }
+
+      const todayKey =
+        formatDateKey(
+          today.getFullYear(),
+          today.getMonth(),
+          today.getDate()
+        );
+
+      const items =
+        calendarEvents
+
+          .filter(
+            event =>
+              event.child === child &&
+              (
+                includePast ||
+                event.date >= todayKey
+              )
+          )
+
+          .sort(
+            (a,b) => {
+
+              const dateCompare =
+                a.date.localeCompare(
+                  b.date
+                );
+
+              if(
+                dateCompare !== 0
+              ){
+                return dateCompare;
+              }
+
+              return (
+                a.time || ""
+              ).localeCompare(
+                b.time || ""
+              );
+
+            }
+          )
+
+          .slice(
+            0,
+            maxItems
+          );
+
+      if(
+        !items.length
+      ){
+
+        target.innerHTML =
+          `
+            <div class="schedule-item">
+              No events found.
+            </div>
+          `;
+
+        return;
+
+      }
+
+      target.innerHTML =
+        items
+
+          .map(
+            event => `
+
+              <div class="schedule-item">
+
+                <strong>
+                  ${prettyDate(event.date)}
+                  —
+                  ${event.sport}
+                </strong>
+
+                <span>
+                  ${event.title}
+                </span>
+
+                <span>
+
+                  ${
+                    event.time ||
+                    "TBD"
+                  }
+
+                  ${
+                    event.location
+                      ? " • " + event.location
+                      : ""
+                  }
+
+                </span>
+
+              </div>
+
+            `
+          )
+
+          .join("");
+
+    }
+
+    function renderCalendar(
+      year,
+      month
+    ){
+
+      const firstDay =
+        new Date(
+          year,
+          month,
+          1
+        );
+
+      const startWeekday =
+        firstDay.getDay();
+
+      const daysInMonth =
+        new Date(
+          year,
+          month+1,
+          0
+        ).getDate();
+
+      const prevMonthDays =
+        new Date(
+          year,
+          month,
+          0
+        ).getDate();
+
+      monthLabelEl.textContent =
+        firstDay.toLocaleString(
+          "en-US",
+          {
+            month:"long",
+            year:"numeric"
+          }
+        );
+
       daysEl.innerHTML = "";
 
-      for(let i = 0; i < 42; i++){
-        const cell = document.createElement("div");
-        cell.className = "calendar-day";
+      for(
+        let i = 0;
+        i < 42;
+        i++
+      ){
+
+        const cell =
+          document.createElement(
+            "div"
+          );
+
+        cell.className =
+          "calendar-day";
 
         let displayDay;
-        let cellYear = year;
-        let cellMonth = month;
-        let isOtherMonth = false;
 
-        if(i < startWeekday){
-          displayDay = prevMonthDays - startWeekday + i + 1;
-          cellMonth = month - 1;
-          if(cellMonth < 0){
+        let cellYear =
+          year;
+
+        let cellMonth =
+          month;
+
+        let isOtherMonth =
+          false;
+
+        if(
+          i < startWeekday
+        ){
+
+          displayDay =
+            prevMonthDays -
+            startWeekday +
+            i +
+            1;
+
+          cellMonth =
+            month - 1;
+
+          if(
+            cellMonth < 0
+          ){
+
             cellMonth = 11;
             cellYear = year - 1;
+
           }
+
           isOtherMonth = true;
-        } else if(i >= startWeekday + daysInMonth){
-          displayDay = i - (startWeekday + daysInMonth) + 1;
-          cellMonth = month + 1;
-          if(cellMonth > 11){
+
+        }else if(
+          i >=
+          startWeekday +
+          daysInMonth
+        ){
+
+          displayDay =
+            i -
+            (
+              startWeekday +
+              daysInMonth
+            ) +
+            1;
+
+          cellMonth =
+            month + 1;
+
+          if(
+            cellMonth > 11
+          ){
+
             cellMonth = 0;
             cellYear = year + 1;
+
           }
+
           isOtherMonth = true;
-        } else {
-          displayDay = i - startWeekday + 1;
+
+        }else{
+
+          displayDay =
+            i -
+            startWeekday +
+            1;
+
         }
 
-        if(isOtherMonth){
-          cell.classList.add("other-month");
+        if(
+          isOtherMonth
+        ){
+
+          cell.classList.add(
+            "other-month"
+          );
+
         }
 
         const isToday =
-          cellYear === today.getFullYear() &&
-          cellMonth === today.getMonth() &&
-          displayDay === today.getDate();
+          cellYear ===
+            today.getFullYear() &&
 
-        if(isToday){
-          cell.classList.add("today");
+          cellMonth ===
+            today.getMonth() &&
+
+          displayDay ===
+            today.getDate();
+
+        if(
+          isToday
+        ){
+
+          cell.classList.add(
+            "today"
+          );
+
         }
 
-        const num = document.createElement("div");
-        num.className = "day-number";
-        num.textContent = displayDay;
-        cell.appendChild(num);
+        const dayNumber =
+          document.createElement(
+            "div"
+          );
 
-        const dateKey = formatDateKey(cellYear, cellMonth, displayDay);
-        const events = getEventsForDate(dateKey);
+        dayNumber.className =
+          "day-number";
 
-        events.slice(0,3).forEach(ev => {
-          const pill = document.createElement("span");
-          pill.className = `event-pill event-${ev.type}`;
-          pill.textContent = ev.title;
-          cell.appendChild(pill);
-        });
+        dayNumber.textContent =
+          displayDay;
 
-        daysEl.appendChild(cell);
+        cell.appendChild(
+          dayNumber
+        );
+
+        const dateKey =
+          formatDateKey(
+            cellYear,
+            cellMonth,
+            displayDay
+          );
+
+        const events =
+          getEventsForDate(
+            dateKey
+          );
+
+        events
+
+          .slice(
+            0,
+            3
+          )
+
+          .forEach(
+            event => {
+
+              const pill =
+                document.createElement(
+                  "span"
+                );
+
+              pill.className =
+                `event-pill event-${event.type}`;
+
+              pill.textContent =
+                `${event.title}${
+                  event.time &&
+                  event.time !== "TBD"
+                    ? " • " + event.time
+                    : ""
+                }`;
+
+              pill.title =
+                `${event.title}` +
+
+                `${
+                  event.time
+                    ? " | " + event.time
+                    : ""
+                }` +
+
+                `${
+                  event.location
+                    ? " | " + event.location
+                    : ""
+                }`;
+
+              cell.appendChild(
+                pill
+              );
+
+            }
+          );
+
+        if(
+          events.length > 3
+        ){
+
+          const more =
+            document.createElement(
+              "span"
+            );
+
+          more.className =
+            "event-pill event-family";
+
+          more.textContent =
+            `+${events.length - 3} more`;
+
+          cell.appendChild(
+            more
+          );
+
+        }
+
+        daysEl.appendChild(
+          cell
+        );
+
       }
 
-      renderNextUp();
     }
 
-    prevBtn.addEventListener("click", () => {
-      currentMonth--;
-      if(currentMonth < 0){
-        currentMonth = 11;
-        currentYear--;
-      }
-      renderCalendar(currentYear, currentMonth);
-    });
+    function refreshAllViews(){
 
-    nextBtn.addEventListener("click", () => {
-      currentMonth++;
-      if(currentMonth > 11){
-        currentMonth = 0;
-        currentYear++;
-      }
-      renderCalendar(currentYear, currentMonth);
-    });
+      renderCalendar(
+        currentYear,
+        currentMonth
+      );
 
-    todayBtn.addEventListener("click", () => {
-      currentYear = today.getFullYear();
-      currentMonth = today.getMonth();
-      renderCalendar(currentYear, currentMonth);
-    });
+      renderNextUp();
+
+      renderOverlaps();
+
+      renderScheduleList(
+        "shepUpcoming",
+        "Shep",
+        10
+      );
+
+      renderScheduleList(
+        "scarlettUpcoming",
+        "Scarlett",
+        10
+      );
+
+      renderScheduleList(
+        "beauUpcoming",
+        "Beau",
+        6
+      );
+
+      renderScheduleList(
+        "beauFullSchedule",
+        "Beau",
+        20,
+        true
+      );
+
+    }
+
+    prevBtn.addEventListener(
+      "click",
+      () => {
+
+        currentMonth--;
+
+        if(
+          currentMonth < 0
+        ){
+
+          currentMonth = 11;
+          currentYear--;
+
+        }
+
+        refreshAllViews();
+
+      }
+    );
+
+    nextBtn.addEventListener(
+      "click",
+      () => {
+
+        currentMonth++;
+
+        if(
+          currentMonth > 11
+        ){
+
+          currentMonth = 0;
+          currentYear++;
+
+        }
+
+        refreshAllViews();
+
+      }
+    );
+
+    todayBtn.addEventListener(
+      "click",
+      () => {
+
+        currentYear =
+          today.getFullYear();
+
+        currentMonth =
+          today.getMonth();
+
+        refreshAllViews();
+
+      }
+    );
 
     renderDayNames();
-    renderCalendar(currentYear, currentMonth);
+
+    refreshAllViews();
+
+    loadPlayMetricsEvents();
+
   </script>
+
 </body>
 </html>
